@@ -228,6 +228,8 @@
     font-size: clamp(36px, 20vw, 120px); /* extra responsive */
   }
 }
+/* make decorative layers click-through */
+.stars, .star-overlay { pointer-events: none; }
 
   </style>
   <script type="application/ld+json">
@@ -445,31 +447,33 @@
     });
 
     // Star animation
-    const starsContainer = document.createElement("div");
-    starsContainer.style.position = "fixed";
-    starsContainer.style.top = 0;
-    starsContainer.style.left = 0;
-    starsContainer.style.width = "100%";
-    starsContainer.style.height = "100%";
-    starsContainer.style.zIndex = "0";
-    starsContainer.style.overflow = "hidden";
-    document.body.appendChild(starsContainer);
+  const starsContainer = document.createElement("div");
+  starsContainer.className = "star-overlay";
+  starsContainer.style.position = "fixed";
+  starsContainer.style.top = 0;
+  starsContainer.style.left = 0;
+  starsContainer.style.width = "100%";
+  starsContainer.style.height = "100%";
+  starsContainer.style.zIndex = "0";
+  starsContainer.style.overflow = "hidden";
+  starsContainer.style.pointerEvents = "none";   // <-- important
+  document.body.appendChild(starsContainer);
 
-    for (let i = 0; i < 120; i++) {
-      const star = document.createElement("div");
-      star.style.position = "absolute";
-      star.style.width = "2px";
-      star.style.height = "2px";
-      star.style.background = "white";
-      star.style.borderRadius = "50%";
-      star.style.top = Math.random() * 100 + "%";
-      star.style.left = Math.random() * 100 + "%";
-      star.style.opacity = Math.random();
-      const duration = 20 + Math.random() * 30; // 20–50s
-      const delay = Math.random() * -50; // stagger start
-      star.style.animation = `twinkle ${1 + Math.random()*3}s infinite alternate, drift ${duration}s linear ${delay}s infinite`;
-      starsContainer.appendChild(star);
-    }
+  for (let i = 0; i < 120; i++) {
+    const star = document.createElement("div");
+    star.style.position = "absolute";
+    star.style.width = "2px";
+    star.style.height = "2px";
+    star.style.background = "white";
+    star.style.borderRadius = "50%";
+    star.style.top = Math.random() * 100 + "%";
+    star.style.left = Math.random() * 100 + "%";
+    star.style.opacity = Math.random();
+    const duration = 20 + Math.random() * 30;
+    const delay = Math.random() * -50;
+    star.style.animation = `twinkle ${1 + Math.random()*3}s infinite alternate, drift ${duration}s linear ${delay}s infinite`;
+    starsContainer.appendChild(star);
+  }
 
   // Mobile nav toggle (runs after DOM is ready)
   const toggleBtn = document.querySelector('.nav-toggle');
