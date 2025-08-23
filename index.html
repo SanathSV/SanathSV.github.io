@@ -217,6 +217,17 @@
   .nav-toggle.open .bar:nth-child(2){ opacity: 0; }
   .nav-toggle.open .bar:nth-child(3){ transform: translateY(-7px) rotate(-45deg); }
 }
+@media (max-width: 600px) {
+  .splash {
+    align-items: center;
+    justify-content: center;
+    padding: 0 10px; /* less padding on small screens */
+  }
+  .splash h1 {
+    text-align: center;
+    font-size: clamp(36px, 20vw, 120px); /* extra responsive */
+  }
+}
 
   </style>
   <script type="application/ld+json">
