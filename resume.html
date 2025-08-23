@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sigineni Venkata Sanath Reddy — Résumé</title>
+  <meta name="description" content="Sanath Reddy — MRD Scholar, CSE @ PES University. AI, RAG, IoT Security. Projects: CuraMate, Campes, Tech Tails, TraffixBLR." />
+  <meta property="og:title" content="Sanath Reddy — Résumé" />
+  <meta property="og:description" content="AI + Security projects. MRD Scholar. PES University." />
+  <meta name="theme-color" content="#0b1020" />
+  <style>
+    *,*::before,*::after{box-sizing:border-box}html,body{height:100%}body,h1,h2,h3,h4,p,figure,blockquote,dl,dd{margin:0}
+    ul[role="list"],ol[role="list"]{list-style:none;margin:0;padding:0}img{max-width:100%;display:block}
+    a{color:inherit;text-decoration:none}button{font:inherit}
+
+    :root{
+      --bg:#0b1020; --panel:#0f152b; --muted:#a3b1d1; --text:#e6ecff;
+      --brand:#7aa2ff; --brand-2:#6ee7b7; --radius:18px; --shadow:0 10px 30px rgba(0,0,0,.5);
+      --max:1100px;
+    }
+    @media (prefers-color-scheme: light){
+      :root{--bg:#f7f9ff; --panel:#ffffff; --text:#0c1222; --muted:#49536a; --brand:#2f65ff; --brand-2:#0ea5e9; --shadow:0 12px 30px rgba(22,33,66,.08)}
+    }
+    body{font-family: ui-sans-serif, system-ui, "Segoe UI", Roboto, Inter, Arial, sans-serif; background: radial-gradient(1200px 600px at 80% -10%, rgba(122,162,255,.2), transparent), radial-gradient(800px 400px at -10% 0%, rgba(110,231,183,.2), transparent), var(--bg); color: var(--text); line-height: 1.6}
+    .wrap{max-width:var(--max); margin:0 auto; padding:24px}
+    .nav{position:sticky; top:0; backdrop-filter: saturate(180%) blur(10px); background: rgba(11,16,32,.7); border-bottom: 1px solid rgba(230,236,255,.08); z-index:20}
+    .nav-inner{display:flex; align-items:center; gap:16px; justify-content:space-between; padding:14px 24px}
+    .nav a{opacity:.9; padding:8px 10px; border-radius:12px}
+    .nav a:hover{background: rgba(255,255,255,.06)}
+    .brand{display:flex; align-items:center; gap:10px; font-weight:700; letter-spacing:.3px}
+    .dot{width:10px;height:10px;border-radius:50%;background:linear-gradient(135deg,var(--brand),var(--brand-2));box-shadow:0 0 12px rgba(122,162,255,.6)}
+
+    .hero{padding:56px 24px 24px}
+    .hero-card{background: linear-gradient(180deg, rgba(15,21,43,.6), var(--panel)); border: 1px solid rgba(230,236,255,.1); border-radius: calc(var(--radius) + 6px); padding: clamp(20px, 4vw, 40px); box-shadow: var(--shadow); overflow: clip; position:relative; isolation:isolate}
+    .hero h1{font-size:clamp(28px, 4.5vw, 42px); line-height:1.15; letter-spacing:.2px}
+    .hero .sub{color:var(--muted); max-width:800px; margin-top:10px}
+    .chip-row{display:flex; gap:10px; flex-wrap:wrap; margin-top:16px}
+    .chip{border:1px solid rgba(122,162,255,.25); color:var(--brand); background: rgba(255,255,255,.04); padding:6px 10px; border-radius:999px; font-size:.92rem}
+    .cta{display:flex; gap:12px; margin-top:18px; flex-wrap:wrap}
+    .btn{border:1px solid rgba(230,236,255,.12); background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02)); color:var(--text); padding:10px 14px; border-radius:12px; font-weight:600; cursor:pointer}
+    .btn:hover{border-color: rgba(122,162,255,.4); box-shadow:0 0 0 3px rgba(122,162,255,.25)}
+    .btn.primary{background:linear-gradient(135deg,var(--brand),var(--brand-2)); color:#001330}
+
+    section{scroll-margin-top:74px; padding:26px 0}
+    .grid{display:grid; gap:16px}
+    @media (min-width: 800px){ .grid-2{grid-template-columns: 1.1fr 1fr} .grid-3{grid-template-columns: repeat(3,1fr)} }
+    .card{background: var(--panel); border:1px solid rgba(230,236,255,.1); border-radius: var(--radius); padding:18px 18px; box-shadow: var(--shadow)}
+    h2{font-size: clamp(22px, 3.5vw, 28px); margin-bottom:10px}
+    .muted{color:var(--muted)}
+    .row{display:flex; gap:12px; flex-wrap:wrap}
+
+    .kpi{display:grid;grid-template-columns:1fr auto;align-items:center;gap:4px;padding:10px 12px;border-radius:12px; border:1px dashed rgba(230,236,255,.15)}
+    .kpi b{font-size:1.02rem}
+
+    .timeline{position:relative; padding-left:18px}
+    .timeline::before{content:"";position:absolute;left:5px;top:0;bottom:0;width:2px;background:rgba(122,162,255,.4)}
+    .tl{position:relative; padding-left:16px; margin:12px 0}
+    .tl::before{content:""; position:absolute; left:-2px; top:.4rem; width:8px;height:8px;border-radius:50%; background:linear-gradient(135deg,var(--brand),var(--brand-2)); box-shadow:0 0 0 3px rgba(122,162,255,.2)}
+
+    footer{opacity:.8; font-size:.95rem; padding:28px 0 40px; text-align:center}
+
+    @media print{ .nav,.cta,.chip-row { display:none !important } body{background:white;color:black} .card,.hero-card{box-shadow:none;border:1px solid #ddd} a{color:black;text-decoration:underline} section{page-break-inside:avoid} }
+    @keyframes floaty { from{transform:translateY(0)} to{transform:translateY(-6px)} }
+    .floaty{animation: floaty 2.4s ease-in-out infinite alternate}
+    body {
+      margin: 0;
+      height: 100vh;
+      background-attachment: fixed;
+      overflow-x: hidden;
+      color: #fff;
+      font-family: system-ui, sans-serif;
+    }
+    /* SPLASH */
+    .splash {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background: var(--bg);
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-start;
+      padding: 20px 40px;
+      z-index: 100;
+      cursor: pointer;
+      transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+    }
+    .splash.hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
+    .splash h1 {
+      font-size: clamp(120px, 16vw, 240px); /* Larger font size */
+      font-weight: 900;
+      letter-spacing: -3px; /* Adjusted for balance */
+      background: linear-gradient(90deg, var(--brand), var(--brand-2));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin: 0;
+      transform: scaleY(1.3); /* Stretch vertically */
+    }
+    .portfolio {
+      opacity: 0;
+      transition: opacity 0.5s ease-out;
+    }
+    .portfolio.visible {
+      opacity: 1;
+    }
+    /* end */
+    .stars {
+      width: 2px;
+      height: 2px;
+      background: white;
+      box-shadow:
+        50px 100px white,
+        150px 200px white,
+        250px 50px white,
+        350px 300px white,
+        450px 150px white,
+        600px 250px white,
+        700px 100px white,
+        800px 400px white;
+      animation: twinkle 2s infinite alternate;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    @keyframes twinkle {
+      from { opacity: 0.3; }
+      to { opacity: 1; }
+    }
+    .kpi {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      gap: 6px;
+      padding: 18px;
+      border-radius: 14px;
+      border: 1px solid rgba(230,236,255,.15);
+      background: var(--panel);
+      box-shadow: var(--shadow);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .kpi:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+    }
+    .kpi b {
+      font-size: 1.05rem;
+      color: var(--text);
+    }
+    .kpi span {
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+    @keyframes drift {
+      from { transform: translateY(0px) translateX(0px); }
+      to { transform: translateY(100px) translateX(-50px); }
+    }
+  </style>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Person","name":"Sigineni Venkata Sanath Reddy","jobTitle":"CSE Undergraduate","alumniOf":"PES University - Electronic City","url":"https://your-username.github.io","email":"mailto:kalpanabandi1982@gmail.com","sameAs":["https://github.com/your-username","https://www.linkedin.com/in/svsanath"]}
+  </script>
+</head>
+<body>
+  <div class="splash" id="splash">
+    <h1>SANATH</h1>
+  </div>
+  <div class="portfolio" id="portfolio">
+    <div class="stars"></div>
+    <nav class="nav">
+      <div class="nav-inner wrap">
+        <div class="brand"><span class="dot"></span> <span>S. V. Sanath Reddy</span></div>
+        <div class="row">
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="#experience">Experience</a>
+          <a href="#achievements">Achievements</a>
+          <a href="#education">Education</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+    </nav>
+    <header class="hero wrap">
+      <div class="hero-card">
+        <h1 class="floaty">Sigineni Venkata Sanath Reddy</h1>
+        <p class="sub">Computer Science Student · Hackathon Enthusiast · Always Exploring New Challenges</p>
+        <div class="chip-row">
+          <span class="chip">Python · C</span>
+          <span class="chip">FAISS · LangChain · RAG</span>
+          <span class="chip">Prompt Engg · Embeddings (Ollama)</span>
+          <span class="chip">MERN · Flask · Streamlit · REST</span>
+          <span class="chip">Pandas · CSV · Data Preprocess</span>
+          <span class="chip">Git · Ubuntu</span>
+        </div>
+        <div class="cta">
+          <a class="btn" href="#projects">View Projects</a>
+          <a class="btn" href="mailto:kalpanabandi1982@gmail.com">Email Me</a>
+          <a class="btn" href="https://www.linkedin.com/in/svsanath" target="_blank">LinkedIn</a>
+        </div>
+      </div>
+    </header>
+    <main class="wrap">
+      <section aria-label="Quick Info">
+        <h2 style="text-align:left; margin-bottom:18px;">Quick Info</h2>
+        <div class="grid grid-3">
+          <div class="kpi solid">
+            <b>CGPA</b>
+            <span>9.03 / 10</span>
+          </div>
+          <div class="kpi solid">
+            <b>Scholarships</b>
+            <span>MRD & CNR Scholar</span>
+          </div>
+          <div class="kpi solid">
+            <b>Interests</b>
+            <span>Hackathons · Problem Solving</span>
+          </div>
+        </div>
+      </section>
+      <section id="about">
+        <h2>About</h2>
+        <div class="card">
+          <p>
+            I’m <b>Sigineni Venkata Sanath Reddy</b>, a Computer Science student at PES University (EC).
+            Outside of academics, I enjoy <b>playing cricket</b> and pushing myself to explore the limits of my mind —
+            whether through problem-solving, strategy, or creative challenges.
+          </p>
+          <p>
+            I admire learning by doing. Over the last few years, I’ve worked on <b>real-world projects</b> under
+            inspiring mentors and actively participated in <b>hackathons</b>, where my teams have been fortunate to win
+            and grow from the experience. These journeys shaped me to value teamwork, curiosity, and the thrill of
+            turning ideas into impact.
+          </p>
+          <p>
+            At my core, I enjoy testing my potential, discovering new perspectives, and building experiences —
+            both in technology and in life.
+          </p>
+        </div>
+      </section>
+      <section id="projects">
+        <h2>Projects</h2>
+        <div class="grid grid-3">
+          <article class="card">
+            <h3>CuraMate — Medical Assistant (RAG + LLMs)</h3>
+            <p class="muted">Reduces human error in clinical decision-making; analyzes prescriptions & symptoms to recommend safe medication pathways.</p>
+            <ul>
+              <li>Provides 360° view of patient status to assist doctors.</li>
+              <li>Improves diagnostic precision and reduces manual risks.</li>
+              <li>Won <b>2nd place</b> at Heal-O-Thon (healthcare AI).</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Campes — Real-time Queue Optimization</h3>
+            <p class="muted">Automates time-slot scheduling and live queue tracking to cut canteen wait times.</p>
+            <ul>
+              <li>Approved by PES University; in final testing.</li>
+              <li>Improves service efficiency and student satisfaction.</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Tech Tails — Physics-based Emotion Detection</h3>
+            <p class="muted">Classifies dog emotional states using frequency and motion — no ML model required.</p>
+            <ul>
+              <li>Developed at Ingenious Hackathon (PES EC).</li>
+              <li>Awarded <b>3rd place</b> for cost-effective behavioral analysis.</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>TraffixBLR — V2V ADAS Braking Simulation</h3>
+            <p class="muted">Prototype to reduce rear-end collisions using IoT-based vehicle-to-vehicle signaling and adaptive braking logic.</p>
+            <ul>
+              <li>Calculated braking distance and sent stop signals to following vehicles.</li>
+              <li>Explored adaptive response based on speed and road conditions.</li>
+              <li>Used <b>Coca-Cola tin cans</b> to simulate line-of-action communication, mimicking directed V2V signaling.</li>
+              <li>Ranked <b>Top 8</b> at CodeRed Hackathon (BMSIT).</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Mentor–Mentee Platform</h3>
+            <p class="muted">A web-based system to improve mentor–mentee communication and streamline academic guidance.</p>
+            <ul>
+              <li>Designed an intuitive platform for students to connect with assigned mentors, track progress, and schedule interactions.</li>
+              <li>Enabled mentors to monitor mentee performance, share resources, and provide structured feedback.</li>
+              <li>Focused on reducing communication gaps and building a more efficient academic support system.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+      <section id="experience">
+        <h2>Experience</h2>
+        <div class="card timeline">
+          <div class="tl">
+            <b>Research Intern — CCNCS, PESU-EC</b> · <span class="muted">Jun 2025 – Aug 2025</span>
+            <hr>
+            <p>
+              Worked with <b>Dr. Chavan</b> and <b>Dr. Animesh Giri</b> to scale <b>CuraMate</b> into a global medical AI solution.
+              Integrated <b>RAG + LLMs</b> for prescription and symptom analysis, with <b>blockchain</b> for secure records.
+              Optimized searching by introducing <b>batch-based retrieval</b> and applying <b>mathematical similarity metrics</b> (Euclidean distance)
+              for faster, more accurate results. Enhanced clinical decision support to make AI recommendations more reliable and transparent.
+            </p>
+            <p><b>Applications:</b> Village and rural clinics for first-line diagnosis, telemedicine platforms for scalable patient support,
+              and hospitals for reducing manual errors and optimizing resource allocation.</p>
+          </div>
+        </div>
+      </section>
+      <section id="achievements">
+        <h2>Achievements & Certifications</h2>
+        <div class="card">
+          <ul class="row" role="list">
+            <li class="chip">MRD Scholarship — Top 5% (3×)</li>
+            <li class="chip">CNR-Rao Scholarship — Top 25%</li>
+            <li class="chip">J.P. Morgan Chase — Code for Good Hackathon: National Shortlist</li>
+            <li class="chip">Heal-O-Thon — 2nd (CuraMate)</li>
+            <li class="chip">Ingenious Hackathon — 3rd (Tech Tails)</li>
+            <li class="chip">CodeRed — Top 8 (TraffixBLR)</li>
+          </ul>
+        </div>
+      </section>
+      <section id="education">
+        <h2>Education</h2>
+        <div class="card">
+          <b>PES University — Electronic City</b> · <span class="muted">B.Tech CSE, 2023–2027</span>
+          <ul>
+            <li>Current CGPA: <b>9.03/10</b> · MRD Scholarship (Top 5%).</li>
+          </ul>
+          <b>Sri Chaitanya School</b>
+          <ul>
+            <li>10th: 82.4% · 12th: 84.2%</li>
+          </ul>
+        </div>
+      </section>
+      <section id="contact">
+        <h2>Contact</h2>
+        <div class="card grid grid-2">
+          <div>
+            <p><b>Phone:</b> <a href="tel:+916360550392">+91 6360550392</a></p>
+            <p><b>Email:</b> <a id="email" href="mailto:kalpanabandi1982@gmail.com">kalpanabandi1982@gmail.com</a></p>
+            <p><b>LinkedIn:</b> <a href="https://www.linkedin.com/in/svsanath" target="_blank">linkedin.com/in/svsanath</a></p>
+            <p><b>GitHub:</b> <a href="https://github.com/your-username" target="_blank">github.com/your-username</a></p>
+          </div>
+        </div>
+      </section>
+      <footer>
+        © <span id="y"></span> S. V. Sanath Reddy — Built with vanilla HTML/CSS/JS. Hosted on GitHub Pages.
+      </footer>
+    </main>
+  </div>
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // Splash Screen Transition JavaScript
+    const splash = document.getElementById('splash');
+    const portfolio = document.getElementById('portfolio');
+    splash.addEventListener('click', () => {
+      splash.classList.add('hidden');
+      portfolio.classList.add('visible');
+      window.scrollTo(0, 0); // Scroll to top
+      setTimeout(() => {
+        splash.style.display = 'none';
+      }, 500); // Match transition duration
+    });
+
+    // Star animation
+    const starsContainer = document.createElement("div");
+    starsContainer.style.position = "fixed";
+    starsContainer.style.top = 0;
+    starsContainer.style.left = 0;
+    starsContainer.style.width = "100%";
+    starsContainer.style.height = "100%";
+    starsContainer.style.zIndex = "0";
+    starsContainer.style.overflow = "hidden";
+    document.body.appendChild(starsContainer);
+
+    for (let i = 0; i < 120; i++) {
+      const star = document.createElement("div");
+      star.style.position = "absolute";
+      star.style.width = "2px";
+      star.style.height = "2px";
+      star.style.background = "white";
+      star.style.borderRadius = "50%";
+      star.style.top = Math.random() * 100 + "%";
+      star.style.left = Math.random() * 100 + "%";
+      star.style.opacity = Math.random();
+      const duration = 20 + Math.random() * 30; // 20–50s
+      const delay = Math.random() * -50; // stagger start
+      star.style.animation = `twinkle ${1 + Math.random()*3}s infinite alternate, drift ${duration}s linear ${delay}s infinite`;
+      starsContainer.appendChild(star);
+    }
+  </script>
+</body>
+</html>
