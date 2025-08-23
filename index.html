@@ -61,7 +61,7 @@
 
     @media print{ .nav,.cta,.chip-row { display:none !important } body{background:white;color:black} .card,.hero-card{box-shadow:none;border:1px solid #ddd} a{color:black;text-decoration:underline} section{page-break-inside:avoid} }
     @keyframes floaty { from{transform:translateY(0)} to{transform:translateY(-6px)} }
-    .floaty{animation: floaty 2.4s ease-in-out infinite alternate}
+    /* .floaty{animation: floaty 2.4s ease-in-out infinite alternate} */
     body {
       margin: 0;
       height: 100vh;
@@ -91,16 +91,19 @@
       visibility: hidden;
     }
     .splash h1 {
-      font-size: clamp(120px, 16vw, 240px); /* Larger font size */
-      font-weight: 900;
-      letter-spacing: -3px; /* Adjusted for balance */
-      background: linear-gradient(90deg, var(--brand), var(--brand-2));
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      margin: 0;
-      transform: scaleY(1.3); /* Stretch vertically */
-    }
+  font-size: clamp(48px, 15vw, 220px); /* scales with screen width */
+  font-weight: 900;
+  letter-spacing: -2px;
+  background: linear-gradient(90deg, var(--brand), var(--brand-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin: 0;
+  transform: scaleY(1.2);
+  line-height: 1.1;
+  text-align: left; /* you can change to center if you prefer */
+}
+
     .portfolio {
       opacity: 0;
       transition: opacity 0.5s ease-out;
@@ -163,6 +166,58 @@
       from { transform: translateY(0px) translateX(0px); }
       to { transform: translateY(100px) translateX(-50px); }
     }
+
+    /* Ensure nav stays on top of stars/splash/etc. */
+.nav { position: sticky; top: 0; z-index: 3000; }
+
+/* Base menu layout */
+.nav-inner { position: relative; }
+.nav-links { display: flex; gap: 12px; align-items: center; }
+.nav a { padding: 10px 12px; border-radius: 10px; }
+
+/* Hamburger (hidden on desktop) */
+.nav-toggle {
+  display: none;
+  background: transparent; border: 0; padding: 8px;
+  border-radius: 10px; cursor: pointer;
+}
+.nav-toggle .bar {
+  display: block; width: 24px; height: 2px; background: var(--text);
+  margin: 5px 0; transition: transform .3s ease, opacity .3s ease;
+}
+
+/* Mobile menu */
+@media (max-width: 860px){
+  .nav-toggle { display: block; z-index: 4000; }
+
+  /* Use fixed so it’s never hidden behind anything */
+  .nav-links{
+    position: fixed;
+    top: 64px;                 /* below the nav */
+    left: 12px; right: 12px;
+    display: none;
+    flex-direction: column;
+    background: rgba(15,21,43,0.98);         /* fallback to solid */
+    border: 1px solid rgba(230,236,255,.12);
+    border-radius: 14px;
+    padding: 10px;
+    box-shadow: var(--shadow);
+    z-index: 3500;             /* above everything else */
+  }
+  .nav-links a{
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+  }
+  .nav-links a:hover{ background: rgba(255,255,255,.06); }
+  .nav-links.open{ display: flex; }
+
+  /* Hamburger -> X animation */
+  .nav-toggle.open .bar:nth-child(1){ transform: translateY(7px) rotate(45deg); }
+  .nav-toggle.open .bar:nth-child(2){ opacity: 0; }
+  .nav-toggle.open .bar:nth-child(3){ transform: translateY(-7px) rotate(-45deg); }
+}
+
   </style>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"Person","name":"Sigineni Venkata Sanath Reddy","jobTitle":"CSE Undergraduate","alumniOf":"PES University - Electronic City","url":"https://your-username.github.io","email":"mailto:kalpanabandi1982@gmail.com","sameAs":["https://github.com/your-username","https://www.linkedin.com/in/svsanath"]}
@@ -175,18 +230,29 @@
   <div class="portfolio" id="portfolio">
     <div class="stars"></div>
     <nav class="nav">
-      <div class="nav-inner wrap">
-        <div class="brand"><span class="dot"></span> <span>S. V. Sanath Reddy</span></div>
-        <div class="row">
-          <a href="#about">About</a>
-          <a href="#projects">Projects</a>
-          <a href="#experience">Experience</a>
-          <a href="#achievements">Achievements</a>
-          <a href="#education">Education</a>
-          <a href="#contact">Contact</a>
-        </div>
-      </div>
-    </nav>
+  <div class="nav-inner wrap">
+    <div class="brand">
+      <span class="dot"></span>
+      <span>S. V. Sanath Reddy</span>
+    </div>
+
+    <!-- mobile toggle -->
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+    </button>
+
+    <!-- links -->
+    <div class="nav-links" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#achievements">Achievements</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
     <header class="hero wrap">
       <div class="hero-card">
         <h1 class="floaty">Sigineni Venkata Sanath Reddy</h1>
@@ -393,6 +459,42 @@
       star.style.animation = `twinkle ${1 + Math.random()*3}s infinite alternate, drift ${duration}s linear ${delay}s infinite`;
       starsContainer.appendChild(star);
     }
-  </script>
+
+  // Mobile nav toggle (runs after DOM is ready)
+  const toggleBtn = document.querySelector('.nav-toggle');
+  const navLinks  = document.getElementById('navLinks');
+
+  function closeMenu(){
+    toggleBtn?.classList.remove('open');
+    navLinks?.classList.remove('open');
+    toggleBtn?.setAttribute('aria-expanded', 'false');
+  }
+
+  toggleBtn?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const willOpen = !toggleBtn.classList.contains('open');
+    toggleBtn.classList.toggle('open', willOpen);
+    navLinks.classList.toggle('open', willOpen);
+    toggleBtn.setAttribute('aria-expanded', String(willOpen));
+  });
+
+  // Close when clicking outside the menu
+  document.addEventListener('click', (e) => {
+    if (!navLinks?.contains(e.target) && !toggleBtn?.contains(e.target)) {
+      closeMenu();
+    }
+  });
+
+  // Close on link click (smooth single-page UX)
+  navLinks?.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', closeMenu);
+  });
+
+  // If resizing back to desktop, ensure menu is closed
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 860) closeMenu();
+  });
+</script>
+
 </body>
 </html>
