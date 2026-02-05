@@ -7,10 +7,13 @@
     <style>
         :root {
             --accent: #007aff;
+            --accent-soft: rgba(0, 122, 255, 0.1);
             --text: #1d1d1f;
-            --bg: #f5f5f7;
-            --card-bg: #ffffff;
-            --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --text-secondary: #86868b;
+            --bg: #ffffff;
+            --card-bg: #f5f5f7;
+            --shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+            --radius: 16px;
         }
 
         * {
@@ -19,17 +22,22 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
             background: var(--bg);
             color: var(--text);
-            line-height: 1.6;
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1000px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 24px;
         }
 
         /* Header & Navigation */
@@ -37,546 +45,313 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: saturate(180%) blur(20px);
             z-index: 1000;
-            transition: background 0.3s, box-shadow 0.3s;
-        }
-
-        header.scrolled {
-            background: rgba(255, 255, 255, 0.95);
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
         }
 
         .nav-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 0;
+            padding: 16px 0;
         }
 
         .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--text);
+            font-size: 1.2rem;
+            font-weight: 600;
+            letter-spacing: -0.5px;
         }
 
         .nav-links {
             display: flex;
-            gap: 40px;
+            gap: 30px;
+            list-style: none;
         }
 
         .nav-links a {
             color: var(--text);
+            text-decoration: none;
+            font-size: 0.9rem;
             font-weight: 500;
-            transition: color 0.3s;
+            opacity: 0.8;
+            transition: 0.2s;
         }
 
         .nav-links a:hover {
+            opacity: 1;
             color: var(--accent);
         }
 
-        .hamburger {
-            display: none;
-            cursor: pointer;
+        /* Hero Section (Centered Typographic Style) */
+        #hero {
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding-top: 80px;
         }
 
-        .hamburger span {
-            display: block;
-            width: 25px;
-            height: 3px;
-            background: var(--text);
-            margin: 5px 0;
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .badge {
+            display: inline-block;
+            background: var(--accent-soft);
+            color: var(--accent);
+            padding: 6px 16px;
+            border-radius: 100px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 24px;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .hero-content p {
+            font-size: clamp(1.1rem, 3vw, 1.4rem);
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+        }
+
+        .social-buttons {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
             transition: 0.3s;
         }
 
-        /* Mobile Nav */
-        @media (max-width: 768px) {
-            .nav-links {
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background: white;
-                flex-direction: column;
-                gap: 0;
-                max-height: 0;
-                overflow: hidden;
-                transition: max-height 0.4s ease;
-                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-            }
-
-            #nav-toggle:checked ~ .nav-links {
-                max-height: 500px;
-            }
-
-            .nav-links a {
-                padding: 20px;
-                border-bottom: 1px solid #eee;
-            }
-
-            .hamburger {
-                display: block;
-            }
+        .btn-primary {
+            background: var(--text);
+            color: white;
         }
 
-        /* Hero Section */
-        #hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            padding-top: 100px;
+        .btn-primary:hover {
+            background: #333;
+            transform: translateY(-2px);
         }
 
-        .hero-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-
-        .hero-text h1 {
-            font-size: 3.5rem;
-            margin-bottom: 10px;
-        }
-
-        .hero-text h2 {
-            font-size: 1.8rem;
-            color: var(--accent);
-            margin-bottom: 20px;
-            font-weight: 500;
-        }
-
-        .hero-text p {
-            font-size: 1.2rem;
-            max-width: 500px;
-            margin-bottom: 30px;
-        }
-
-        .social-links a {
-            display: inline-block;
-            margin-right: 20px;
-            color: var(--accent);
-            font-weight: 500;
-        }
-
-        .hero-photo img {
-            width: 100%;
-            max-width: 380px;
-            border-radius: 50%;
-            box-shadow: var(--shadow);
-        }
-
-        @media (max-width: 768px) {
-            .hero-grid {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .hero-text h1 {
-                font-size: 2.8rem;
-            }
-
-            .hero-photo {
-                order: -1;
-                margin-bottom: 40px;
-            }
-
-            .hero-photo img {
-                max-width: 280px;
-            }
+        .btn-secondary {
+            background: var(--card-bg);
+            color: var(--text);
         }
 
         /* General Sections */
         section {
-            padding: 120px 0;
-            opacity: 0;
-            transform: translateY(50px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
+            padding: 100px 0;
         }
 
-        section.visible {
-            opacity: 1;
-            transform: translateY(0);
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 48px;
+            letter-spacing: -0.02em;
         }
 
-        #hero {
-            opacity: 1;
-            transform: none;
-        }
-
-        h2 {
-            font-size: 2.8rem;
-            text-align: center;
-            margin-bottom: 80px;
-            position: relative;
-        }
-
-        h2::after {
-            content: '';
-            width: 80px;
-            height: 4px;
-            background: var(--accent);
-            position: absolute;
-            bottom: -20px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        /* Projects */
+        /* Projects Grid - Cleaner Cards */
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
         }
 
         .card {
             background: var(--card-bg);
-            border-radius: 20px;
-            padding: 40px;
-            box-shadow: var(--shadow);
-            transition: transform 0.4s ease;
+            padding: 32px;
+            border-radius: var(--radius);
+            transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid transparent;
         }
 
         .card:hover {
-            transform: translateY(-15px);
+            background: #fff;
+            border-color: rgba(0,0,0,0.05);
+            box-shadow: var(--shadow);
+            transform: translateY(-4px);
         }
 
         .card h3 {
-            font-size: 1.6rem;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
+            font-size: 1.3rem;
+        }
+
+        .card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 16px;
+        }
+
+        .card-tag {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
             color: var(--accent);
-        }
-
-        .card ul {
-            margin: 20px 0;
-            padding-left: 20px;
-        }
-
-        .card li {
-            margin-bottom: 10px;
+            margin-bottom: 8px;
+            display: block;
         }
 
         /* Skills */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-        }
-
-        .skill-category h3 {
-            margin-bottom: 20px;
-            font-size: 1.4rem;
-        }
-
-        .tags {
+        .skills-container {
             display: flex;
             flex-wrap: wrap;
             gap: 12px;
         }
 
-        .tag {
-            background: var(--accent);
-            color: white;
+        .skill-tag {
+            background: white;
+            border: 1px solid rgba(0,0,0,0.1);
             padding: 8px 18px;
-            border-radius: 30px;
-            font-size: 0.95rem;
-        }
-
-        /* Contact */
-        #contact {
-            text-align: center;
-        }
-
-        .contact-info {
-            font-size: 1.3rem;
-            margin-bottom: 30px;
-        }
-
-        .contact-info a {
-            color: var(--accent);
-        }
-
-        footer {
-            text-align: center;
-            padding: 40px 0;
-            color: #666;
+            border-radius: 100px;
             font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* Experience/Education Timeline */
+        .timeline-item {
+            border-left: 2px solid var(--accent-soft);
+            padding-left: 24px;
+            padding-bottom: 40px;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -7px;
+            top: 0;
+            width: 12px;
+            height: 12px;
+            background: var(--accent);
+            border-radius: 50%;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero-content h1 { font-size: 2.8rem; }
         }
     </style>
 </head>
 <body>
 
-    <input type="checkbox" id="nav-toggle" class="nav-toggle" hidden>
-
-    <header class="header">
+    <header>
         <div class="container nav-container">
             <div class="logo">Sanath Reddy</div>
-            <nav>
-                <ul class="nav-links">
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#experience">Experience</a></li>
-                    <li><a href="#achievements">Achievements</a></li>
-                    <li><a href="#education">Education</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-            <label for="nav-toggle" class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </label>
+            <ul class="nav-links">
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
         </div>
     </header>
 
-    <section id="hero" class="section visible">
-        <div class="container">
-            <div class="hero-grid">
-                <div class="hero-text">
-                    <h1>Sigineni Venkata Sanath Reddy</h1>
-                    <h2>Computer Science Student · Hackathon Enthusiast</h2>
-                    <p>Building intelligent, impactful solutions with AI, LLMs, RAG, and full-stack development.</p>
-                    <div class="social-links">
-                        <a href="https://www.linkedin.com/in/svsanath" target="_blank">LinkedIn</a>
-                        <a href="https://github.com/SanathSV" target="_blank">GitHub</a>
-                        <a href="mailto:kalpanabandi1982@gmail.com">Email</a>
-                    </div>
-                </div>
-                <div class="hero-photo">
-                    <img src="profile-photo.jpg" alt="Sanath Reddy"> <!-- Replace with your actual photo URL or local file -->
-                </div>
+    <section id="hero">
+        <div class="container hero-content">
+            <span class="badge">Open for Internships 2026</span>
+            <h1>Sigineni Venkata Sanath Reddy</h1>
+            <p>Computer Science Student at PES University. Specialized in building intelligent systems with AI, RAG, and LLMs.</p>
+            <div class="social-buttons">
+                <a href="https://github.com/SanathSV" class="btn btn-primary">View GitHub</a>
+                <a href="#contact" class="btn btn-secondary">Get in Touch</a>
             </div>
         </div>
     </section>
 
-    <section id="about" class="section">
+    <section id="projects">
         <div class="container">
-            <h2>About</h2>
-            <p style="max-width: 800px; margin: 0 auto; font-size: 1.2rem; text-align: center;">
-                I'm Sigineni Venkata Sanath Reddy, a Computer Science student at PES University (EC). Outside of academics, I enjoy playing cricket and pushing myself to explore the limits of my mind — whether through problem-solving, strategy, or creative challenges.<br><br>
-                I admire learning by doing. Over the last few years, I've worked on real-world projects under inspiring mentors and actively participated in hackathons, where my teams have been fortunate to win and grow from the experience. These journeys shaped me to value teamwork, curiosity, and the thrill of turning ideas into impact.<br><br>
-                At my core, I enjoy testing my potential, discovering new perspectives, and building experiences — both in technology and in life.
-            </p>
-        </div>
-    </section>
-
-    <section id="projects" class="section">
-        <div class="container">
-            <h2>Projects</h2>
+            <h2 class="section-title">Selected Projects</h2>
             <div class="projects-grid">
                 <div class="card">
-                    <h3>CuraMate — Medical Assistant (RAG + LLMs)</h3>
-                    <p>Reduces human error in clinical decision-making; analyzes prescriptions & symptoms to recommend safe medication pathways.</p>
-                    <ul>
-                        <li>Provides 360° view of patient status to assist doctors.</li>
-                        <li>Improves diagnostic precision and reduces manual risks.</li>
-                    </ul>
-                    <p><strong>Won 2nd place at Heal-O-Thon (healthcare AI).</strong></p>
+                    <span class="card-tag">Award Winning</span>
+                    <h3>CuraMate</h3>
+                    <p>AI Medical Assistant using RAG + LLMs to analyze symptoms and prescriptions. Won 2nd at Heal-O-Thon.</p>
                 </div>
-
                 <div class="card">
-                    <h3>Mental Health Monitor — Real-time Patient Assessment</h3>
-                    <p>Multimodal AI system combining computer vision and audio analysis to assess patient wellbeing in rehabilitation settings.</p>
-                    <ul>
-                        <li>Integrated activity recognition and facial emotion detection using MediaPipe and TensorFlow.</li>
-                        <li>Implemented weighted scoring with automated alerts for critical states.</li>
-                        <li>Created live caregiver dashboard for continuous monitoring.</li>
-                    </ul>
+                    <span class="card-tag">Computer Vision</span>
+                    <h3>Mental Health Monitor</h3>
+                    <p>Real-time wellbeing assessment using facial emotion detection and audio analysis via MediaPipe.</p>
                 </div>
-
                 <div class="card">
-                    <h3>Campes — Real-time Queue Optimization</h3>
-                    <p>Automates time-slot scheduling and live queue tracking to cut canteen wait times.</p>
-                    <ul>
-                        <li>Approved by PES University; in final testing.</li>
-                        <li>Improves service efficiency and student satisfaction.</li>
-                    </ul>
+                    <span class="card-tag">Infrastructure</span>
+                    <h3>Campes</h3>
+                    <p>Live queue optimization and scheduling system for university canteens. Currently in final testing.</p>
                 </div>
-
                 <div class="card">
-                    <h3>Tech Tails — Physics-based Emotion Detection</h3>
-                    <p>Classifies dog emotional states using frequency and motion — no ML model required.</p>
-                    <ul>
-                        <li>Developed at Ingenious Hackathon (PES EC).</li>
-                    </ul>
-                    <p><strong>Awarded 3rd place for cost-effective behavioral analysis.</strong></p>
-                </div>
-
-                <div class="card">
-                    <h3>TraffixBLR — V2V ADAS Braking Simulation</h3>
-                    <p>Prototype to reduce rear-end collisions using IoT-based vehicle-to-vehicle signaling and adaptive braking logic.</p>
-                    <ul>
-                        <li>Calculated braking distance and sent stop signals to following vehicles.</li>
-                        <li>Used Coca-Cola tin cans to simulate line-of-action communication.</li>
-                    </ul>
-                    <p><strong>Ranked Top 8 at CodeRed Hackathon (BMSIT).</strong></p>
-                </div>
-
-                <div class="card">
-                    <h3>Mentor–Mentee Platform</h3>
-                    <p>A web-based system to improve mentor–mentee communication and streamline academic guidance.</p>
-                    <ul>
-                        <li>Designed intuitive platform for tracking progress and scheduling.</li>
-                        <li>Enabled resource sharing and structured feedback.</li>
-                    </ul>
+                    <span class="card-tag">IoT / Simulation</span>
+                    <h3>TraffixBLR</h3>
+                    <p>V2V communication prototype for autonomous braking signals. Ranked Top 8 at CodeRed Hackathon.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="experience" class="section">
+    <section id="experience" style="background: var(--card-bg);">
         <div class="container">
-            <h2>Experience</h2>
-            <div class="card" style="max-width: 900px; margin: 0 auto;">
-                <h3>Research Intern — CCNCS, PES University (Jun 2025 – Aug 2025)</h3>
-                <p>Worked with Dr. Chavan and Dr. Animesh Giri to scale CuraMate into a global medical AI solution. Integrated RAG + LLMs for prescription and symptom analysis, with blockchain for secure records.</p>
-                <ul>
-                    <li>Optimized searching with batch-based retrieval and Euclidean distance metrics.</li>
-                    <li>Enhanced clinical decision support for reliability and transparency.</li>
-                    <li>Applications: Rural clinics, telemedicine, and hospitals.</li>
-                </ul>
-                <p><strong>Co-authored SMARTCOM 2026 (Springer) paper on the project.</strong></p>
+            <h2 class="section-title">Experience & Education</h2>
+            
+            <div class="timeline-item">
+                <span class="card-tag">Jun 2025 — Aug 2025</span>
+                <h3>Research Intern — CCNCS, PES University</h3>
+                <p>Scaling CuraMate AI. Co-authored SMARTCOM 2026 (Springer) paper. Focused on Batch-based retrieval and Vector DB optimization.</p>
+            </div>
+
+            <div class="timeline-item">
+                <span class="card-tag">2023 — 2027</span>
+                <h3>B.Tech in Computer Science — PES University</h3>
+                <p>CGPA: 9.03 / 10.0 • MRD Scholar (Top 5% of Batch).</p>
             </div>
         </div>
     </section>
 
-    <section id="achievements" class="section">
+    <section id="skills">
         <div class="container">
-            <h2>Achievements & Certifications</h2>
-            <div class="card" style="max-width: 800px; margin: 0 auto; padding: 50px;">
-                <ul style="font-size: 1.2rem; list-style: none; padding-left: 0;">
-                    <li style="margin-bottom: 20px;">• MRD Scholarship — Top 5% (multiple semesters)</li>
-                    <li style="margin-bottom: 20px;">• CNR-Rao Scholarship — Top 25%</li>
-                    <li style="margin-bottom: 20px;">• J.P. Morgan Chase — Code for Good Hackathon: National Shortlist</li>
-                    <li style="margin-bottom: 20px;">• Heal-O-Thon — 2nd Place (CuraMate)</li>
-                    <li style="margin-bottom: 20px;">• Ingenious Hackathon — 3rd Place (Tech Tails)</li>
-                    <li style="margin-bottom: 20px;">• CodeRed Hackathon — Top 8 (TraffixBLR)</li>
-                </ul>
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills-container">
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">LangChain</span>
+                <span class="skill-tag">LLMs / RAG</span>
+                <span class="skill-tag">Vector DBs (FAISS)</span>
+                <span class="skill-tag">MERN Stack</span>
+                <span class="skill-tag">Flask</span>
+                <span class="skill-tag">SQL</span>
+                <span class="skill-tag">Kafka</span>
+                <span class="skill-tag">Prompt Engineering</span>
             </div>
         </div>
     </section>
 
-    <section id="education" class="section">
+    <section id="contact" style="text-align: center;">
         <div class="container">
-            <h2>Education</h2>
-            <div class="card" style="max-width: 800px; margin: 0 auto;">
-                <h3>PES University — B.Tech in Computer Science Engineering (2023–2027)</h3>
-                <p>Current CGPA: 9.03 / 10 • MRD Scholar (Top 5%)</p>
-                <br>
-                <h3>Sri Chaitanya School</h3>
-                <p>10th: 82.4% • 12th: 84.2%</p>
+            <h2 class="section-title">Let's Connect</h2>
+            <p style="margin-bottom: 30px; color: var(--text-secondary);">I'm always open to discussing new projects or research opportunities.</p>
+            <a href="mailto:kalpanabandi1982@gmail.com" class="btn btn-primary" style="font-size: 1.1rem; padding: 16px 40px;">Email Me</a>
+            <div style="margin-top: 40px;">
+                <a href="https://www.linkedin.com/in/svsanath" style="margin: 0 10px; color: var(--text);">LinkedIn</a>
+                <a href="https://github.com/SanathSV" style="margin: 0 10px; color: var(--text);">GitHub</a>
             </div>
         </div>
     </section>
 
-    <section id="skills" class="section">
-        <div class="container">
-            <h2>Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h3>Programming Languages</h3>
-                    <div class="tags">
-                        <span class="tag">Python</span>
-                        <span class="tag">C</span>
-                        <span class="tag">SQL</span>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <h3>AI & ML Frameworks</h3>
-                    <div class="tags">
-                        <span class="tag">LLMs</span>
-                        <span class="tag">RAG</span>
-                        <span class="tag">Fine-tuning</span>
-                        <span class="tag">LangChain</span>
-                        <span class="tag">FAISS</span>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <h3>NLP & Embeddings</h3>
-                    <div class="tags">
-                        <span class="tag">Prompt Engineering</span>
-                        <span class="tag">Ollama Embeddings</span>
-                        <span class="tag">Vector DBs</span>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <h3>Web Development</h3>
-                    <div class="tags">
-                        <span class="tag">MERN Stack</span>
-                        <span class="tag">Flask</span>
-                        <span class="tag">Streamlit</span>
-                        <span class="tag">REST APIs</span>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <h3>Data & Tools</h3>
-                    <div class="tags">
-                        <span class="tag">Pandas</span>
-                        <span class="tag">Kafka</span>
-                        <span class="tag">Git</span>
-                        <span class="tag">Ubuntu</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="section">
-        <div class="container">
-            <h2>Contact</h2>
-            <div class="contact-info">
-                <p>Phone: <a href="tel:+916360550392">+91 6360550392</a></p>
-                <p>Email: <a href="mailto:kalpanabandi1982@gmail.com">kalpanabandi1982@gmail.com</a></p>
-                <p>LinkedIn: <a href="https://www.linkedin.com/in/svsanath" target="_blank">linkedin.com/in/svsanath</a></p>
-                <p>GitHub: <a href="https://github.com/SanathSV" target="_blank">github.com/SanathSV</a></p>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        © 2026 SV Sanath Reddy. All rights reserved.
+    <footer style="padding: 60px 0; border-top: 1px solid rgba(0,0,0,0.05); text-align: center; color: var(--text-secondary); font-size: 0.85rem;">
+        © 2026 Sigineni Venkata Sanath Reddy. Built with precision.
     </footer>
 
-    <script>
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-                // Close mobile menu after click
-                document.getElementById('nav-toggle').checked = false;
-            });
-        });
-
-        // Header scroll effect
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 100) {
-                document.querySelector('header').classList.add('scrolled');
-            } else {
-                document.querySelector('header').classList.remove('scrolled');
-            }
-        });
-
-        // Scroll fade-in animations
-        const sections = document.querySelectorAll('.section');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.1 });
-
-        sections.forEach(section => {
-            observer.observe(section);
-        });
-    </script>
 </body>
 </html>
