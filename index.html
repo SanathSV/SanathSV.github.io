@@ -1,524 +1,582 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Sigineni Venkata Sanath Reddy — Résumé</title>
-  <meta name="description" content="Sanath Reddy — MRD Scholar, CSE @ PES University. AI, RAG, IoT Security. Projects: CuraMate, Mental Health Monitor, Campes, Tech Tails, TraffixBLR." />
-  <meta property="og:title" content="SV Sanath Reddy — RESUME" />
-  <meta property="og:description" content="AI + Security projects. MRD Scholar. PES University." />
-  <meta name="theme-color" content="#0b1020" />
-  <style>
-    *,*::before,*::after{box-sizing:border-box}html,body{height:100%}body,h1,h2,h3,h4,p,figure,blockquote,dl,dd{margin:0}
-    ul[role="list"],ol[role="list"]{list-style:none;margin:0;padding:0}img{max-width:100%;display:block}
-    a{color:inherit;text-decoration:none}button{font:inherit}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sanath Reddy | Computer Science Student</title>
+    <style>
+        :root {
+            --accent: #007aff;
+            --text: #1d1d1f;
+            --bg: #f5f5f7;
+            --card-bg: #ffffff;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
 
-    :root{
-      --bg:#0b1020; --panel:#0f152b; --muted:#a3b1d1; --text:#e6ecff;
-      --brand:#7aa2ff; --brand-2:#6ee7b7; --radius:18px; --shadow:0 10px 30px rgba(0,0,0,.5);
-      --max:1100px;
-    }
-    @media (prefers-color-scheme: light){
-      :root{--bg:#f7f9ff; --panel:#ffffff; --text:#0c1222; --muted:#49536a; --brand:#2f65ff; --brand-2:#0ea5e9; --shadow:0 12px 30px rgba(22,33,66,.08)}
-    }
-    body{font-family: ui-sans-serif, system-ui, "Segoe UI", Roboto, Inter, Arial, sans-serif; background: radial-gradient(1200px 600px at 80% -10%, rgba(122,162,255,.2), transparent), radial-gradient(800px 400px at -10% 0%, rgba(110,231,183,.2), transparent), var(--bg); color: var(--text); line-height: 1.6}
-    .wrap{max-width:var(--max); margin:0 auto; padding:24px}
-    .nav{position:sticky; top:0; backdrop-filter: saturate(180%) blur(10px); background: rgba(11,16,32,.7); border-bottom: 1px solid rgba(230,236,255,.08); z-index:20}
-    .nav-inner{display:flex; align-items:center; gap:16px; justify-content:space-between; padding:14px 24px}
-    .nav a{opacity:.9; padding:8px 10px; border-radius:12px}
-    .nav a:hover{background: rgba(255,255,255,.06)}
-    .brand{display:flex; align-items:center; gap:10px; font-weight:700; letter-spacing:.3px}
-    .dot{width:10px;height:10px;border-radius:50%;background:linear-gradient(135deg,var(--brand),var(--brand-2));box-shadow:0 0 12px rgba(122,162,255,.6)}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    .hero{padding:56px 24px 24px}
-    .hero-card{background: linear-gradient(180deg, rgba(15,21,43,.6), var(--panel)); border: 1px solid rgba(230,236,255,.1); border-radius: calc(var(--radius) + 6px); padding: clamp(20px, 4vw, 40px); box-shadow: var(--shadow); overflow: clip; position:relative; isolation:isolate}
-    .hero h1{font-size:clamp(28px, 4.5vw, 42px); line-height:1.15; letter-spacing:.2px}
-    .hero .sub{color:var(--muted); max-width:800px; margin-top:10px}
-    .chip-row{display:flex; gap:10px; flex-wrap:wrap; margin-top:16px}
-    .chip{border:1px solid rgba(122,162,255,.25); color:var(--brand); background: rgba(255,255,255,.04); padding:6px 10px; border-radius:999px; font-size:.92rem}
-    .cta{display:flex; gap:12px; margin-top:18px; flex-wrap:wrap}
-    .btn{border:1px solid rgba(230,236,255,.12); background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02)); color:var(--text); padding:10px 14px; border-radius:12px; font-weight:600; cursor:pointer}
-    .btn:hover{border-color: rgba(122,162,255,.4); box-shadow:0 0 0 3px rgba(122,162,255,.25)}
-    .btn.primary{background:linear-gradient(135deg,var(--brand),var(--brand-2)); color:#001330}
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
 
-    section{scroll-margin-top:74px; padding:26px 0}
-    .grid{display:grid; gap:16px}
-    @media (min-width: 800px){ .grid-2{grid-template-columns: 1.1fr 1fr} .grid-3{grid-template-columns: repeat(3,1fr)} }
-    .card{background: var(--panel); border:1px solid rgba(230,236,255,.1); border-radius: var(--radius); padding:18px 18px; box-shadow: var(--shadow)}
-    h2{font-size: clamp(22px, 3.5vw, 28px); margin-bottom:10px}
-    .muted{color:var(--muted)}
-    .row{display:flex; gap:12px; flex-wrap:wrap}
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
-    .kpi{display:grid;grid-template-columns:1fr auto;align-items:center;gap:4px;padding:10px 12px;border-radius:12px; border:1px dashed rgba(230,236,255,.15)}
-    .kpi b{font-size:1.02rem}
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            z-index: 1000;
+            transition: background 0.3s, box-shadow 0.3s;
+        }
 
-    .timeline{position:relative; padding-left:18px}
-    .timeline::before{content:"";position:absolute;left:5px;top:0;bottom:0;width:2px;background:rgba(122,162,255,.4)}
-    .tl{position:relative; padding-left:16px; margin:12px 0}
-    .tl::before{content:""; position:absolute; left:-2px; top:.4rem; width:8px;height:8px;border-radius:50%; background:linear-gradient(135deg,var(--brand),var(--brand-2)); box-shadow:0 0 0 3px rgba(122,162,255,.2)}
+        header.scrolled {
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
 
-    footer{opacity:.8; font-size:.95rem; padding:28px 0 40px; text-align:center}
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
 
-    @media print{ .nav,.cta,.chip-row { display:none !important } body{background:white;color:black} .card,.hero-card{box-shadow:none;border:1px solid #ddd} a{color:black;text-decoration:underline} section{page-break-inside:avoid} }
-    @keyframes floaty { from{transform:translateY(0)} to{transform:translateY(-6px)} }
-    /* .floaty{animation: floaty 2.4s ease-in-out infinite alternate} */
-    body {
-      margin: 0;
-      height: 100vh;
-      background-attachment: fixed;
-      overflow-x: hidden;
-      color: #fff;
-      font-family: system-ui, sans-serif;
-    }
-    /* SPLASH */
-    .splash {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100vh;
-      background: var(--bg);
-      display: flex;
-      align-items: flex-end;
-      justify-content: flex-start;
-      padding: 20px 40px;
-      z-index: 100;
-      cursor: pointer;
-      transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
-    }
-    .splash.hidden {
-      opacity: 0;
-      visibility: hidden;
-    }
-    .splash h1 {
-  font-size: clamp(48px, 15vw, 220px); /* scales with screen width */
-  font-weight: 900;
-  letter-spacing: -2px;
-  background: linear-gradient(90deg, var(--brand), var(--brand-2));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  margin: 0;
-  transform: scaleY(1.2);
-  line-height: 1.1;
-  text-align: left; /* you can change to center if you prefer */
-}
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text);
+        }
 
-    .portfolio {
-      opacity: 0;
-      transition: opacity 0.5s ease-out;
-    }
-    .portfolio.visible {
-      opacity: 1;
-    }
-    /* end */
-    .stars {
-      width: 2px;
-      height: 2px;
-      background: white;
-      box-shadow:
-        50px 100px white,
-        150px 200px white,
-        250px 50px white,
-        350px 300px white,
-        450px 150px white,
-        600px 250px white,
-        700px 100px white,
-        800px 400px white;
-      animation: twinkle 2s infinite alternate;
-      position: absolute;
-      top: 0;
-      left: 0;
-    }
-    html {
-      scroll-behavior: smooth;
-    }
-    @keyframes twinkle {
-      from { opacity: 0.3; }
-      to { opacity: 1; }
-    }
-    .kpi {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      text-align: center;
-      gap: 6px;
-      padding: 18px;
-      border-radius: 14px;
-      border: 1px solid rgba(230,236,255,.15);
-      background: var(--panel);
-      box-shadow: var(--shadow);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .kpi:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 6px 18px rgba(0,0,0,0.35);
-    }
-    .kpi b {
-      font-size: 1.05rem;
-      color: var(--text);
-    }
-    .kpi span {
-      font-size: 0.95rem;
-      color: var(--muted);
-    }
-    @keyframes drift {
-      from { transform: translateY(0px) translateX(0px); }
-      to { transform: translateY(100px) translateX(-50px); }
-    }
+        .nav-links {
+            display: flex;
+            gap: 40px;
+        }
 
-    /* Ensure nav stays on top of stars/splash/etc. */
-.nav { position: sticky; top: 0; z-index: 3000; }
+        .nav-links a {
+            color: var(--text);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
 
-/* Base menu layout */
-.nav-inner { position: relative; }
-.nav-links { display: flex; gap: 12px; align-items: center; }
-.nav a { padding: 10px 12px; border-radius: 10px; }
+        .nav-links a:hover {
+            color: var(--accent);
+        }
 
-/* Hamburger (hidden on desktop) */
-.nav-toggle {
-  display: none;
-  background: transparent; border: 0; padding: 8px;
-  border-radius: 10px; cursor: pointer;
-}
-.nav-toggle .bar {
-  display: block; width: 24px; height: 2px; background: var(--text);
-  margin: 5px 0; transition: transform .3s ease, opacity .3s ease;
-}
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
 
-/* Mobile menu */
-@media (max-width: 860px){
-  .nav-toggle { display: block; z-index: 4000; }
+        .hamburger span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background: var(--text);
+            margin: 5px 0;
+            transition: 0.3s;
+        }
 
-  /* Use fixed so it's never hidden behind anything */
-  .nav-links{
-    position: fixed;
-    top: 64px;                 /* below the nav */
-    left: 12px; right: 12px;
-    display: none;
-    flex-direction: column;
-    background: rgba(15,21,43,0.98);         /* fallback to solid */
-    border: 1px solid rgba(230,236,255,.12);
-    border-radius: 14px;
-    padding: 10px;
-    box-shadow: var(--shadow);
-    z-index: 3500;             /* above everything else */
-  }
-  .nav-links a{
-    width: 100%;
-    padding: 12px;
-    border-radius: 10px;
-  }
-  .nav-links a:hover{ background: rgba(255,255,255,.06); }
-  .nav-links.open{ display: flex; }
+        /* Mobile Nav */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                gap: 0;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.4s ease;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            }
 
-  /* Hamburger -> X animation */
-  .nav-toggle.open .bar:nth-child(1){ transform: translateY(7px) rotate(45deg); }
-  .nav-toggle.open .bar:nth-child(2){ opacity: 0; }
-  .nav-toggle.open .bar:nth-child(3){ transform: translateY(-7px) rotate(-45deg); }
-}
-@media (max-width: 600px) {
-  .splash {
-    align-items: center;
-    justify-content: center;
-    padding: 0 10px; /* less padding on small screens */
-  }
-  .splash h1 {
-    text-align: center;
-    font-size: clamp(36px, 20vw, 120px); /* extra responsive */
-  }
-}
-/* make decorative layers click-through */
-.stars, .star-overlay { pointer-events: none; }
+            #nav-toggle:checked ~ .nav-links {
+                max-height: 500px;
+            }
 
-  </style>
-  <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Person","name":"Sigineni Venkata Sanath Reddy","jobTitle":"CSE Undergraduate","alumniOf":"PES University - Electronic City","url":"https://your-username.github.io","email":"mailto:kalpanabandi1982@gmail.com","sameAs":["https://github.com/your-username","https://www.linkedin.com/in/svsanath"]}
-  </script>
+            .nav-links a {
+                padding: 20px;
+                border-bottom: 1px solid #eee;
+            }
+
+            .hamburger {
+                display: block;
+            }
+        }
+
+        /* Hero Section */
+        #hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 100px;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+        }
+
+        .hero-text h2 {
+            font-size: 1.8rem;
+            color: var(--accent);
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            max-width: 500px;
+            margin-bottom: 30px;
+        }
+
+        .social-links a {
+            display: inline-block;
+            margin-right: 20px;
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        .hero-photo img {
+            width: 100%;
+            max-width: 380px;
+            border-radius: 50%;
+            box-shadow: var(--shadow);
+        }
+
+        @media (max-width: 768px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 2.8rem;
+            }
+
+            .hero-photo {
+                order: -1;
+                margin-bottom: 40px;
+            }
+
+            .hero-photo img {
+                max-width: 280px;
+            }
+        }
+
+        /* General Sections */
+        section {
+            padding: 120px 0;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        #hero {
+            opacity: 1;
+            transform: none;
+        }
+
+        h2 {
+            font-size: 2.8rem;
+            text-align: center;
+            margin-bottom: 80px;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            width: 80px;
+            height: 4px;
+            background: var(--accent);
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Projects */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: 40px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: var(--shadow);
+            transition: transform 0.4s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-15px);
+        }
+
+        .card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+            color: var(--accent);
+        }
+
+        .card ul {
+            margin: 20px 0;
+            padding-left: 20px;
+        }
+
+        .card li {
+            margin-bottom: 10px;
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .skill-category h3 {
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .tag {
+            background: var(--accent);
+            color: white;
+            padding: 8px 18px;
+            border-radius: 30px;
+            font-size: 0.95rem;
+        }
+
+        /* Contact */
+        #contact {
+            text-align: center;
+        }
+
+        .contact-info {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+        }
+
+        .contact-info a {
+            color: var(--accent);
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            color: #666;
+            font-size: 0.9rem;
+        }
+    </style>
 </head>
 <body>
-  <div class="splash" id="splash">
-    <h1>SANATH</h1>
-  </div>
-  <div class="portfolio" id="portfolio">
-    <div class="stars"></div>
-    <nav class="nav">
-  <div class="nav-inner wrap">
-    <div class="brand">
-      <span class="dot"></span>
-      <span>S. V. Sanath Reddy</span>
-    </div>
 
-    <!-- mobile toggle -->
-    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
-      <span class="bar"></span><span class="bar"></span><span class="bar"></span>
-    </button>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" hidden>
 
-    <!-- links -->
-    <div class="nav-links" id="navLinks">
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#experience">Experience</a>
-      <a href="#achievements">Achievements</a>
-      <a href="#education">Education</a>
-      <a href="#contact">Contact</a>
-    </div>
-  </div>
-</nav>
-
-    <header class="hero wrap">
-      <div class="hero-card">
-        <h1 class="floaty">Sigineni Venkata Sanath Reddy</h1>
-        <p class="sub">Computer Science Student · Hackathon Enthusiast · Always Exploring New Challenges</p>
-        <div class="chip-row">
-          <span class="chip">Python · C</span>
-          <span class="chip">FAISS · LangChain · RAG</span>
-          <span class="chip">Prompt Engg · Embeddings (Ollama)</span>
-          <span class="chip">MERN · Flask · Streamlit · REST</span>
-          <span class="chip">Pandas · CSV · Data Preprocess</span>
-          <span class="chip">Git · Ubuntu</span>
+    <header class="header">
+        <div class="container nav-container">
+            <div class="logo">Sanath Reddy</div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#achievements">Achievements</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <label for="nav-toggle" class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
         </div>
-        <div class="cta">
-          <a class="btn" href="#projects">View Projects</a>
-          <a class="btn" href="mailto:kalpanabandi1982@gmail.com">Email Me</a>
-          <a class="btn" href="https://www.linkedin.com/in/svsanath" target="_blank">LinkedIn</a>
-        </div>
-      </div>
     </header>
-    <main class="wrap">
-      <section aria-label="Quick Info">
-        <h2 style="text-align:left; margin-bottom:18px;">Quick Info</h2>
-        <div class="grid grid-3">
-          <div class="kpi solid">
-            <b>CGPA</b>
-            <span>9.03 / 10</span>
-          </div>
-          <div class="kpi solid">
-            <b>Scholarships</b>
-            <span>MRD & CNR Scholar</span>
-          </div>
-          <div class="kpi solid">
-            <b>Interests</b>
-            <span>Hackathons · Problem Solving</span>
-          </div>
+
+    <section id="hero" class="section visible">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-text">
+                    <h1>Sigineni Venkata Sanath Reddy</h1>
+                    <h2>Computer Science Student · Hackathon Enthusiast</h2>
+                    <p>Building intelligent, impactful solutions with AI, LLMs, RAG, and full-stack development.</p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/svsanath" target="_blank">LinkedIn</a>
+                        <a href="https://github.com/SanathSV" target="_blank">GitHub</a>
+                        <a href="mailto:kalpanabandi1982@gmail.com">Email</a>
+                    </div>
+                </div>
+                <div class="hero-photo">
+                    <img src="profile-photo.jpg" alt="Sanath Reddy"> <!-- Replace with your actual photo URL or local file -->
+                </div>
+            </div>
         </div>
-      </section>
-      <section id="about">
-        <h2>About</h2>
-        <div class="card">
-          <p>
-            I'm <b>Sigineni Venkata Sanath Reddy</b>, a Computer Science student at PES University (EC).
-            Outside of academics, I enjoy <b>playing cricket</b> and pushing myself to explore the limits of my mind —
-            whether through problem-solving, strategy, or creative challenges.
-          </p>
-          <p>
-            I admire learning by doing. Over the last few years, I've worked on <b>real-world projects</b> under
-            inspiring mentors and actively participated in <b>hackathons</b>, where my teams have been fortunate to win
-            and grow from the experience. These journeys shaped me to value teamwork, curiosity, and the thrill of
-            turning ideas into impact.
-          </p>
-          <p>
-            At my core, I enjoy testing my potential, discovering new perspectives, and building experiences —
-            both in technology and in life.
-          </p>
-        </div>
-      </section>
-      <section id="projects">
-        <h2>Projects</h2>
-        <div class="grid grid-3">
-          <article class="card">
-            <h3>CuraMate — Medical Assistant (RAG + LLMs)</h3>
-            <p class="muted">Reduces human error in clinical decision-making; analyzes prescriptions & symptoms to recommend safe medication pathways.</p>
-            <ul>
-              <li>Provides 360° view of patient status to assist doctors.</li>
-              <li>Improves diagnostic precision and reduces manual risks.</li>
-              <li>Won <b>2nd place</b> at Heal-O-Thon (healthcare AI).</li>
-            </ul>
-          </article>
-          <article class="card">
-            <h3>Mental Health Monitor — Real-time Patient Assessment</h3>
-            <p class="muted">Multimodal AI system combining computer vision and audio analysis to assess patient wellbeing in rehabilitation settings.</p>
-            <ul>
-              <li>Integrated activity recognition and facial emotion detection using MediaPipe and TensorFlow.</li>
-              <li>Implemented weighted scoring with automated alerts for critical states.</li>
-              <li>Created live caregiver dashboard for continuous monitoring between therapy sessions.</li>
-            </ul>
-          </article>
-          <article class="card">
-            <h3>Campes — Real-time Queue Optimization</h3>
-            <p class="muted">Automates time-slot scheduling and live queue tracking to cut canteen wait times.</p>
-            <ul>
-              <li>Approved by PES University; in final testing.</li>
-              <li>Improves service efficiency and student satisfaction.</li>
-            </ul>
-          </article>
-          <article class="card">
-            <h3>Tech Tails — Physics-based Emotion Detection</h3>
-            <p class="muted">Classifies dog emotional states using frequency and motion — no ML model required.</p>
-            <ul>
-              <li>Developed at Ingenious Hackathon (PES EC).</li>
-              <li>Awarded <b>3rd place</b> for cost-effective behavioral analysis.</li>
-            </ul>
-          </article>
-          <article class="card">
-            <h3>TraffixBLR — V2V ADAS Braking Simulation</h3>
-            <p class="muted">Prototype to reduce rear-end collisions using IoT-based vehicle-to-vehicle signaling and adaptive braking logic.</p>
-            <ul>
-              <li>Calculated braking distance and sent stop signals to following vehicles.</li>
-              <li>Explored adaptive response based on speed and road conditions.</li>
-              <li>Used <b>Coca-Cola tin cans</b> to simulate line-of-action communication, mimicking directed V2V signaling.</li>
-              <li>Ranked <b>Top 8</b> at CodeRed Hackathon (BMSIT).</li>
-            </ul>
-          </article>
-          <article class="card">
-            <h3>Mentor–Mentee Platform</h3>
-            <p class="muted">A web-based system to improve mentor–mentee communication and streamline academic guidance.</p>
-            <ul>
-              <li>Designed an intuitive platform for students to connect with assigned mentors, track progress, and schedule interactions.</li>
-              <li>Enabled mentors to monitor mentee performance, share resources, and provide structured feedback.</li>
-              <li>Focused on reducing communication gaps and building a more efficient academic support system.</li>
-            </ul>
-          </article>
-        </div>
-      </section>
-      <section id="experience">
-        <h2>Experience</h2>
-        <div class="card timeline">
-          <div class="tl">
-            <b>Research Intern — CCNCS, PESU-EC</b> · <span class="muted">Jun 2025 – Aug 2025</span>
-            <hr>
-            <p>
-              Worked with <b>Dr. Chavan</b> and <b>Dr. Animesh Giri</b> to scale <b>CuraMate</b> into a global medical AI solution.
-              Integrated <b>RAG + LLMs</b> for prescription and symptom analysis, with <b>blockchain</b> for secure records.
-              Optimized searching by introducing <b>batch-based retrieval</b> and applying <b>mathematical similarity metrics</b> (Euclidean distance)
-              for faster, more accurate results. Enhanced clinical decision support to make AI recommendations more reliable and transparent.
+    </section>
+
+    <section id="about" class="section">
+        <div class="container">
+            <h2>About</h2>
+            <p style="max-width: 800px; margin: 0 auto; font-size: 1.2rem; text-align: center;">
+                I'm Sigineni Venkata Sanath Reddy, a Computer Science student at PES University (EC). Outside of academics, I enjoy playing cricket and pushing myself to explore the limits of my mind — whether through problem-solving, strategy, or creative challenges.<br><br>
+                I admire learning by doing. Over the last few years, I've worked on real-world projects under inspiring mentors and actively participated in hackathons, where my teams have been fortunate to win and grow from the experience. These journeys shaped me to value teamwork, curiosity, and the thrill of turning ideas into impact.<br><br>
+                At my core, I enjoy testing my potential, discovering new perspectives, and building experiences — both in technology and in life.
             </p>
-            <p><b>Applications:</b> Village and rural clinics for first-line diagnosis, telemedicine platforms for scalable patient support,
-              and hospitals for reducing manual errors and optimizing resource allocation.</p>
-          </div>
         </div>
-      </section>
-      <section id="achievements">
-        <h2>Achievements & Certifications</h2>
-        <div class="card">
-          <ul class="row" role="list">
-            <li class="chip">MRD Scholarship — Top 5% (3×)</li>
-            <li class="chip">CNR-Rao Scholarship — Top 25%</li>
-            <li class="chip">J.P. Morgan Chase — Code for Good Hackathon: National Shortlist</li>
-            <li class="chip">Heal-O-Thon — 2nd (CuraMate)</li>
-            <li class="chip">Ingenious Hackathon — 3rd (Tech Tails)</li>
-            <li class="chip">CodeRed — Top 8 (TraffixBLR)</li>
-          </ul>
+    </section>
+
+    <section id="projects" class="section">
+        <div class="container">
+            <h2>Projects</h2>
+            <div class="projects-grid">
+                <div class="card">
+                    <h3>CuraMate — Medical Assistant (RAG + LLMs)</h3>
+                    <p>Reduces human error in clinical decision-making; analyzes prescriptions & symptoms to recommend safe medication pathways.</p>
+                    <ul>
+                        <li>Provides 360° view of patient status to assist doctors.</li>
+                        <li>Improves diagnostic precision and reduces manual risks.</li>
+                    </ul>
+                    <p><strong>Won 2nd place at Heal-O-Thon (healthcare AI).</strong></p>
+                </div>
+
+                <div class="card">
+                    <h3>Mental Health Monitor — Real-time Patient Assessment</h3>
+                    <p>Multimodal AI system combining computer vision and audio analysis to assess patient wellbeing in rehabilitation settings.</p>
+                    <ul>
+                        <li>Integrated activity recognition and facial emotion detection using MediaPipe and TensorFlow.</li>
+                        <li>Implemented weighted scoring with automated alerts for critical states.</li>
+                        <li>Created live caregiver dashboard for continuous monitoring.</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>Campes — Real-time Queue Optimization</h3>
+                    <p>Automates time-slot scheduling and live queue tracking to cut canteen wait times.</p>
+                    <ul>
+                        <li>Approved by PES University; in final testing.</li>
+                        <li>Improves service efficiency and student satisfaction.</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>Tech Tails — Physics-based Emotion Detection</h3>
+                    <p>Classifies dog emotional states using frequency and motion — no ML model required.</p>
+                    <ul>
+                        <li>Developed at Ingenious Hackathon (PES EC).</li>
+                    </ul>
+                    <p><strong>Awarded 3rd place for cost-effective behavioral analysis.</strong></p>
+                </div>
+
+                <div class="card">
+                    <h3>TraffixBLR — V2V ADAS Braking Simulation</h3>
+                    <p>Prototype to reduce rear-end collisions using IoT-based vehicle-to-vehicle signaling and adaptive braking logic.</p>
+                    <ul>
+                        <li>Calculated braking distance and sent stop signals to following vehicles.</li>
+                        <li>Used Coca-Cola tin cans to simulate line-of-action communication.</li>
+                    </ul>
+                    <p><strong>Ranked Top 8 at CodeRed Hackathon (BMSIT).</strong></p>
+                </div>
+
+                <div class="card">
+                    <h3>Mentor–Mentee Platform</h3>
+                    <p>A web-based system to improve mentor–mentee communication and streamline academic guidance.</p>
+                    <ul>
+                        <li>Designed intuitive platform for tracking progress and scheduling.</li>
+                        <li>Enabled resource sharing and structured feedback.</li>
+                    </ul>
+                </div>
+            </div>
         </div>
-      </section>
-      <section id="education">
-        <h2>Education</h2>
-        <div class="card">
-          <b>PES University — Electronic City</b> · <span class="muted">B.Tech CSE, 2023–2027</span>
-          <ul>
-            <li>Current CGPA: <b>9.03/10</b> · MRD Scholarship (Top 5%).</li>
-          </ul>
-          <b>Sri Chaitanya School</b>
-          <ul>
-            <li>10th: 82.4% · 12th: 84.2%</li>
-          </ul>
+    </section>
+
+    <section id="experience" class="section">
+        <div class="container">
+            <h2>Experience</h2>
+            <div class="card" style="max-width: 900px; margin: 0 auto;">
+                <h3>Research Intern — CCNCS, PES University (Jun 2025 – Aug 2025)</h3>
+                <p>Worked with Dr. Chavan and Dr. Animesh Giri to scale CuraMate into a global medical AI solution. Integrated RAG + LLMs for prescription and symptom analysis, with blockchain for secure records.</p>
+                <ul>
+                    <li>Optimized searching with batch-based retrieval and Euclidean distance metrics.</li>
+                    <li>Enhanced clinical decision support for reliability and transparency.</li>
+                    <li>Applications: Rural clinics, telemedicine, and hospitals.</li>
+                </ul>
+                <p><strong>Co-authored SMARTCOM 2026 (Springer) paper on the project.</strong></p>
+            </div>
         </div>
-      </section>
-      <section id="contact">
-        <h2>Contact</h2>
-        <div class="card grid grid-2">
-          <div>
-            <p><b>Phone:</b> <a href="tel:+916360550392">+91 6360550392</a></p>
-            <p><b>Email:</b> <a id="email" href="mailto:kalpanabandi1982@gmail.com">kalpanabandi1982@gmail.com</a></p>
-            <p><b>LinkedIn:</b> <a href="https://www.linkedin.com/in/svsanath" target="_blank">linkedin.com/in/svsanath</a></p>
-            <p><b>GitHub:</b> <a href="https://github.com/SanathSV" target="_blank">github.com/SanathSV</a></p>
-          </div>
+    </section>
+
+    <section id="achievements" class="section">
+        <div class="container">
+            <h2>Achievements & Certifications</h2>
+            <div class="card" style="max-width: 800px; margin: 0 auto; padding: 50px;">
+                <ul style="font-size: 1.2rem; list-style: none; padding-left: 0;">
+                    <li style="margin-bottom: 20px;">• MRD Scholarship — Top 5% (multiple semesters)</li>
+                    <li style="margin-bottom: 20px;">• CNR-Rao Scholarship — Top 25%</li>
+                    <li style="margin-bottom: 20px;">• J.P. Morgan Chase — Code for Good Hackathon: National Shortlist</li>
+                    <li style="margin-bottom: 20px;">• Heal-O-Thon — 2nd Place (CuraMate)</li>
+                    <li style="margin-bottom: 20px;">• Ingenious Hackathon — 3rd Place (Tech Tails)</li>
+                    <li style="margin-bottom: 20px;">• CodeRed Hackathon — Top 8 (TraffixBLR)</li>
+                </ul>
+            </div>
         </div>
-      </section>
-      <footer>
-        © <span id="y"></span> SV Sanath Reddy.
-      </footer>
-    </main>
-  </div>
-  <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
+    </section>
 
-    // Splash Screen Transition JavaScript
-    const splash = document.getElementById('splash');
-    const portfolio = document.getElementById('portfolio');
-    splash.addEventListener('click', () => {
-      splash.classList.add('hidden');
-      portfolio.classList.add('visible');
-      window.scrollTo(0, 0); // Scroll to top
-      setTimeout(() => {
-        splash.style.display = 'none';
-      }, 500); // Match transition duration
-    });
+    <section id="education" class="section">
+        <div class="container">
+            <h2>Education</h2>
+            <div class="card" style="max-width: 800px; margin: 0 auto;">
+                <h3>PES University — B.Tech in Computer Science Engineering (2023–2027)</h3>
+                <p>Current CGPA: 9.03 / 10 • MRD Scholar (Top 5%)</p>
+                <br>
+                <h3>Sri Chaitanya School</h3>
+                <p>10th: 82.4% • 12th: 84.2%</p>
+            </div>
+        </div>
+    </section>
 
-    // Star animation
-  const starsContainer = document.createElement("div");
-  starsContainer.className = "star-overlay";
-  starsContainer.style.position = "fixed";
-  starsContainer.style.top = 0;
-  starsContainer.style.left = 0;
-  starsContainer.style.width = "100%";
-  starsContainer.style.height = "100%";
-  starsContainer.style.zIndex = "0";
-  starsContainer.style.overflow = "hidden";
-  starsContainer.style.pointerEvents = "none";   // <-- important
-  document.body.appendChild(starsContainer);
+    <section id="skills" class="section">
+        <div class="container">
+            <h2>Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Programming Languages</h3>
+                    <div class="tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">C</span>
+                        <span class="tag">SQL</span>
+                    </div>
+                </div>
 
-  for (let i = 0; i < 120; i++) {
-    const star = document.createElement("div");
-    star.style.position = "absolute";
-    star.style.width = "2px";
-    star.style.height = "2px";
-    star.style.background = "white";
-    star.style.borderRadius = "50%";
-    star.style.top = Math.random() * 100 + "%";
-    star.style.left = Math.random() * 100 + "%";
-    star.style.opacity = Math.random();
-    const duration = 20 + Math.random() * 30;
-    const delay = Math.random() * -50;
-    star.style.animation = `twinkle ${1 + Math.random()*3}s infinite alternate, drift ${duration}s linear ${delay}s infinite`;
-    starsContainer.appendChild(star);
-  }
+                <div class="skill-category">
+                    <h3>AI & ML Frameworks</h3>
+                    <div class="tags">
+                        <span class="tag">LLMs</span>
+                        <span class="tag">RAG</span>
+                        <span class="tag">Fine-tuning</span>
+                        <span class="tag">LangChain</span>
+                        <span class="tag">FAISS</span>
+                    </div>
+                </div>
 
-  // Mobile nav toggle (runs after DOM is ready)
-  const toggleBtn = document.querySelector('.nav-toggle');
-  const navLinks  = document.getElementById('navLinks');
+                <div class="skill-category">
+                    <h3>NLP & Embeddings</h3>
+                    <div class="tags">
+                        <span class="tag">Prompt Engineering</span>
+                        <span class="tag">Ollama Embeddings</span>
+                        <span class="tag">Vector DBs</span>
+                    </div>
+                </div>
 
-  function closeMenu(){
-    toggleBtn?.classList.remove('open');
-    navLinks?.classList.remove('open');
-    toggleBtn?.setAttribute('aria-expanded', 'false');
-  }
+                <div class="skill-category">
+                    <h3>Web Development</h3>
+                    <div class="tags">
+                        <span class="tag">MERN Stack</span>
+                        <span class="tag">Flask</span>
+                        <span class="tag">Streamlit</span>
+                        <span class="tag">REST APIs</span>
+                    </div>
+                </div>
 
-  toggleBtn?.addEventListener('click', (e) => {
-    e.stopPropagation();
-    const willOpen = !toggleBtn.classList.contains('open');
-    toggleBtn.classList.toggle('open', willOpen);
-    navLinks.classList.toggle('open', willOpen);
-    toggleBtn.setAttribute('aria-expanded', String(willOpen));
-  });
+                <div class="skill-category">
+                    <h3>Data & Tools</h3>
+                    <div class="tags">
+                        <span class="tag">Pandas</span>
+                        <span class="tag">Kafka</span>
+                        <span class="tag">Git</span>
+                        <span class="tag">Ubuntu</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  // Close when clicking outside the menu
-  document.addEventListener('click', (e) => {
-    if (!navLinks?.contains(e.target) && !toggleBtn?.contains(e.target)) {
-      closeMenu();
-    }
-  });
+    <section id="contact" class="section">
+        <div class="container">
+            <h2>Contact</h2>
+            <div class="contact-info">
+                <p>Phone: <a href="tel:+916360550392">+91 6360550392</a></p>
+                <p>Email: <a href="mailto:kalpanabandi1982@gmail.com">kalpanabandi1982@gmail.com</a></p>
+                <p>LinkedIn: <a href="https://www.linkedin.com/in/svsanath" target="_blank">linkedin.com/in/svsanath</a></p>
+                <p>GitHub: <a href="https://github.com/SanathSV" target="_blank">github.com/SanathSV</a></p>
+            </div>
+        </div>
+    </section>
 
-  // Close on link click (smooth single-page UX)
-  navLinks?.querySelectorAll('a').forEach(a => {
-    a.addEventListener('click', closeMenu);
-  });
+    <footer>
+        © 2026 SV Sanath Reddy. All rights reserved.
+    </footer>
 
-  // If resizing back to desktop, ensure menu is closed
-  window.addEventListener('resize', () => {
-    if (window.innerWidth > 860) closeMenu();
-  });
-</script>
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                // Close mobile menu after click
+                document.getElementById('nav-toggle').checked = false;
+            });
+        });
 
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                document.querySelector('header').classList.add('scrolled');
+            } else {
+                document.querySelector('header').classList.remove('scrolled');
+            }
+        });
+
+        // Scroll fade-in animations
+        const sections = document.querySelectorAll('.section');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+    </script>
 </body>
 </html>
