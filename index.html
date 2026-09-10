@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sanath Reddy | AI and Software Engineering</title>
-<meta name="description" content="Sigineni Venkata Sanath Reddy, computer science student at PES University. Research internships at AVEVA and CCNCS, a Springer-published paper, and award-winning hackathon projects.">
+<meta name="description" content="Sigineni Venkata Sanath Reddy, computer science student at PES University. Research internships at AVEVA and CCNCS, a Springer-published paper, Campes, and award-winning hackathon projects.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -168,6 +168,8 @@
     content: ''; flex: none; margin-top: 0.3em; width: 10px; height: 10px; border-radius: 50%;
     border: 2px solid var(--amber);
   }
+  .project-link { text-decoration: none; }
+  .project-link:hover { color: var(--cobalt); text-decoration: underline; text-underline-offset: 4px; }
   .status {
     display: inline-block; margin-top: 10px; font-size: 0.9rem; font-weight: 600; color: var(--cobalt);
   }
@@ -258,7 +260,7 @@
       <div>
         <p class="hero-meta">Computer Science, PES University, Bengaluru. Class of 2027.</p>
         <h1>Sigineni Venkata Sanath Reddy</h1>
-        <p class="hero-lede">I build retrieval-augmented AI systems and fast, readable data visualizations. Research internships at AVEVA and CCNCS, a paper published with Springer, and awards at three hackathons.</p>
+        <p class="hero-lede">I build retrieval-augmented AI systems and fast, readable data visualizations. Research internships at AVEVA and CCNCS, a paper published with Springer, awards at three hackathons, and Campes, a live food pre-ordering platform.</p>
         <div class="actions">
           <a class="button button-solid" href="mailto:kalpanabandi1982@gmail.com">Email me</a>
           <a class="button button-line" href="https://github.com/SanathSV">GitHub</a>
@@ -342,6 +344,17 @@
         </div>
       </article>
 
+      <article class="row" id="campes">
+        <div>
+          <h3><a class="project-link" href="https://campes.in">Campes</a></h3>
+          <span class="status">Live at campes.in</span>
+        </div>
+        <div class="body">
+          <p>A pre-ordering platform for campus food vendors, on the web and mobile. Students order ahead instead of waiting in line. I was on the team that structured both the website and the mobile app, built with AI-assisted development.</p>
+          <p class="stack">Cloudflare for security, Firebase Authentication, Amazon S3 for storage, AWS SAM for infrastructure</p>
+        </div>
+      </article>
+
       <article class="row" id="heysoul">
         <div>
           <h3>HeySoul</h3>
@@ -401,7 +414,7 @@
         <li><strong>3rd place, Ingenious Hackathon</strong><span>For Tech Tails</span></li>
         <li><strong>Top 8, CodeRed Hackathon</strong><span>For TraffixBLR</span></li>
         <li><strong>Shortlisted, Code for Good</strong><span>JPMorgan Chase hackathon</span></li>
-        <li><strong>MRD Scholarship</strong><span>Four consecutive semesters, top 5% academic ranking at PES University</span></li>
+        <li><strong>MRD Scholarship four times, CNR Scholarship twice</strong><span>Merit scholarships placing me in the top 5% of my peers at PES University</span></li>
       </ul>
     </div>
   </section>
@@ -413,6 +426,7 @@
         <h3>PES University</h3>
         <p class="edu-detail">B.Tech in Computer Science and Engineering, 2023 – 2027</p>
         <p class="edu-detail">CGPA 9.02 / 10</p>
+        <p class="edu-detail">4 MRD and 2 CNR scholarships, top 5% of my peers</p>
         <p class="edu-detail">Electives in Generative AI, Large Language Models, and Retrieval-Augmented Generation</p>
       </div>
       <div>
@@ -424,6 +438,8 @@
           <dd>Python, Java, SQL</dd>
           <dt>Frameworks and libraries</dt>
           <dd>Angular, Highcharts, D3.js, Flask, Streamlit, MERN stack, Kafka, Pandas, NumPy, REST APIs</dd>
+          <dt>Cloud and infrastructure</dt>
+          <dd>Cloudflare, Firebase Authentication, Amazon S3, AWS SAM</dd>
           <dt>Tools</dt>
           <dd>Git, Docker, Linux</dd>
         </dl>
@@ -459,11 +475,12 @@
     { id: 'gitsight',   label: 'GitSight',      sub: 'Code visualization', type: 'project', x: 390, y: 255, pos: 'l' },
     { id: 'heysoul',    label: 'HeySoul',       sub: 'Wellbeing monitor',  type: 'project', x: 72,  y: 295, pos: 'b' },
     { id: 'techtails',  label: 'Tech Tails',    sub: '3rd, Ingenious',     type: 'project', x: 250, y: 360, pos: 'b', award: true },
+    { id: 'campes',     label: 'Campes',        sub: 'Live at campes.in',  type: 'project', x: 318, y: 312, pos: 'r' },
     { id: 'traffixblr', label: 'TraffixBLR',    sub: 'Top 8, CodeRed',     type: 'project', x: 405, y: 382, pos: 'b', award: true },
   ];
   const edges = [
     ['ccncs', 'curamate'], ['ccncs', 'paper'], ['curamate', 'paper'], ['ccncs', 'aveva'],
-    ['aveva', 'gitsight'], ['curamate', 'heysoul'], ['heysoul', 'techtails'], ['techtails', 'traffixblr'],
+    ['aveva', 'gitsight'], ['curamate', 'heysoul'], ['heysoul', 'techtails'], ['techtails', 'traffixblr'], ['gitsight', 'campes'],
   ];
 
   const NS = 'http://www.w3.org/2000/svg';
