@@ -1,357 +1,535 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sanath Reddy | Computer Science Student</title>
-    <style>
-        :root {
-            --accent: #007aff;
-            --accent-soft: rgba(0, 122, 255, 0.1);
-            --text: #1d1d1f;
-            --text-secondary: #86868b;
-            --bg: #ffffff;
-            --card-bg: #f5f5f7;
-            --shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
-            --radius: 16px;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sanath Reddy | AI and Software Engineering</title>
+<meta name="description" content="Sigineni Venkata Sanath Reddy, computer science student at PES University. Research internships at AVEVA and CCNCS, a Springer-published paper, and award-winning hackathon projects.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #F4F6F8;
+    --surface: #FFFFFF;
+    --ink: #1B2540;
+    --muted: #5A6474;
+    --rule: #DCE1E7;
+    --cobalt: #2A47D6;
+    --amber: #B7791F;
+    --display: 'Bricolage Grotesque', Georgia, serif;
+    --body: 'Instrument Sans', system-ui, sans-serif;
+  }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 
-        html {
-            scroll-behavior: smooth;
-        }
+  body {
+    font-family: var(--body);
+    font-size: 17px;
+    line-height: 1.6;
+    color: var(--ink);
+    background: var(--paper);
+    -webkit-font-smoothing: antialiased;
+  }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.5;
-            -webkit-font-smoothing: antialiased;
-        }
+  a { color: inherit; }
+  :focus-visible { outline: 2px solid var(--cobalt); outline-offset: 3px; border-radius: 2px; }
 
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 28px; }
 
-        /* Header & Navigation */
-        header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: saturate(180%) blur(20px);
-            z-index: 1000;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
-        }
+  /* Header */
+  .site-header {
+    position: sticky; top: 0; z-index: 10;
+    background: rgba(244, 246, 248, 0.88);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--rule);
+  }
+  .site-header .wrap {
+    display: flex; justify-content: space-between; align-items: center;
+    height: 64px;
+  }
+  .wordmark {
+    font-family: var(--display); font-weight: 700; font-size: 1.1rem;
+    text-decoration: none; letter-spacing: -0.01em;
+  }
+  .site-nav { display: flex; gap: 28px; list-style: none; }
+  .site-nav a {
+    text-decoration: none; font-size: 0.95rem; font-weight: 500; color: var(--muted);
+  }
+  .site-nav a:hover { color: var(--ink); }
 
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 16px 0;
-        }
+  /* Hero */
+  .hero { padding: 88px 0 72px; }
+  .hero .wrap {
+    display: grid; grid-template-columns: 1.05fr 1fr; gap: 48px; align-items: center;
+  }
+  .hero-meta { color: var(--muted); font-size: 0.98rem; margin-bottom: 18px; }
+  .hero h1 {
+    font-family: var(--display);
+    font-size: clamp(2.6rem, 5.6vw, 4.3rem);
+    font-weight: 700;
+    line-height: 1.02;
+    letter-spacing: -0.035em;
+    margin-bottom: 24px;
+  }
+  .hero-lede { font-size: 1.15rem; max-width: 34em; margin-bottom: 32px; }
+  .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+  .button {
+    display: inline-block; padding: 11px 20px; border-radius: 8px;
+    font-weight: 600; font-size: 0.95rem; text-decoration: none;
+    border: 1px solid var(--ink);
+  }
+  .button-solid { background: var(--ink); color: var(--paper); }
+  .button-solid:hover { background: var(--cobalt); border-color: var(--cobalt); }
+  .button-line:hover { border-color: var(--cobalt); color: var(--cobalt); }
 
-        .logo {
-            font-size: 1.2rem;
-            font-weight: 600;
-            letter-spacing: -0.5px;
-        }
+  /* Work map */
+  .map { position: relative; }
+  .map svg { width: 100%; height: auto; display: block; overflow: visible; }
+  .edge { stroke: #B9C2CE; stroke-width: 1.5; fill: none; }
+  .node-shape { fill: var(--surface); stroke: var(--ink); stroke-width: 2; }
+  .node-shape.work { fill: var(--ink); }
+  .node-shape.paper { fill: var(--cobalt); stroke: var(--cobalt); }
+  .award-ring { fill: none; stroke: var(--amber); stroke-width: 2; }
+  .node text {
+    font-family: var(--body); fill: var(--ink);
+    paint-order: stroke; stroke: var(--paper); stroke-width: 5px; stroke-linejoin: round;
+  }
+  .node .label { font-size: 14px; font-weight: 600; }
+  .node .sub { font-size: 12px; fill: var(--muted); }
+  .node { cursor: pointer; transition: opacity 0.2s; }
+  .edge { transition: stroke 0.2s, opacity 0.2s; }
+  .map.focused .node, .map.focused .edge { opacity: 0.22; }
+  .map.focused .node.on, .map.focused .edge.on { opacity: 1; }
+  .map.focused .edge.on { stroke: var(--cobalt); }
+  .node:focus-visible { outline: none; }
+  .node:focus-visible .label { fill: var(--cobalt); text-decoration: underline; }
 
-        .nav-links {
-            display: flex;
-            gap: 30px;
-            list-style: none;
-        }
+  /* One load-in moment: the map draws itself */
+  @media (prefers-reduced-motion: no-preference) {
+    .edge { stroke-dasharray: 1; stroke-dashoffset: 1; animation: draw 0.9s ease-out forwards; animation-delay: calc(0.35s + var(--i) * 0.12s); }
+    .node { opacity: 0; animation: appear 0.5s ease-out forwards; animation-delay: calc(var(--i) * 0.1s); }
+    @keyframes draw { to { stroke-dashoffset: 0; } }
+    @keyframes appear { to { opacity: 1; } }
+    .map.focused .node:not(.on), .map.focused .edge:not(.on) { opacity: 0.22 !important; }
+  }
 
-        .nav-links a {
-            color: var(--text);
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 500;
-            opacity: 0.8;
-            transition: 0.2s;
-        }
+  .legend {
+    display: flex; flex-wrap: wrap; gap: 6px 20px; margin-top: 18px;
+    font-size: 0.85rem; color: var(--muted);
+  }
+  .legend span { display: inline-flex; align-items: center; gap: 7px; }
+  .legend svg { width: 14px; height: 14px; }
 
-        .nav-links a:hover {
-            opacity: 1;
-            color: var(--accent);
-        }
+  /* Sections */
+  .section { padding: 88px 0; border-top: 1px solid var(--rule); }
+  .section-head { margin-bottom: 44px; max-width: 40em; }
+  .section-head h2 {
+    font-family: var(--display); font-size: 2rem; font-weight: 700;
+    letter-spacing: -0.02em; line-height: 1.15;
+  }
+  .section-head p { color: var(--muted); margin-top: 8px; }
 
-        /* Hero Section (Centered Typographic Style) */
-        #hero {
-            min-height: 85vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding-top: 80px;
-        }
+  /* Shared row layout: left column identifies, right column explains */
+  .row {
+    display: grid; grid-template-columns: 250px 1fr; gap: 32px;
+    padding: 30px 0; border-top: 1px solid var(--rule);
+    scroll-margin-top: 84px;
+    position: relative;
+  }
+  .row:last-child { border-bottom: 1px solid var(--rule); }
+  .row h3 {
+    font-family: var(--display); font-size: 1.4rem; font-weight: 700;
+    letter-spacing: -0.015em; line-height: 1.2;
+  }
+  .row .when { color: var(--muted); font-size: 0.95rem; margin-top: 4px; }
+  .row .body { max-width: 38em; }
+  .row .body p + p, .row .body ul { margin-top: 10px; }
+  .row ul { padding-left: 1.1em; }
+  .row li + li { margin-top: 8px; }
+  .row li::marker { color: var(--cobalt); }
+  .stack { color: var(--muted); font-size: 0.92rem; margin-top: 14px; }
 
-        .hero-content {
-            max-width: 800px;
-        }
+  /* Arrival highlight when a map node is clicked */
+  .row::before {
+    content: ''; position: absolute; left: -18px; top: 30px; bottom: 30px;
+    width: 3px; background: var(--cobalt); border-radius: 2px;
+    transform: scaleY(0); transform-origin: top;
+  }
+  .row:target::before { transform: scaleY(1); transition: transform 0.4s ease-out; }
 
-        .badge {
-            display: inline-block;
-            background: var(--accent-soft);
-            color: var(--accent);
-            padding: 6px 16px;
-            border-radius: 100px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-bottom: 24px;
-        }
+  .award {
+    display: inline-flex; align-items: flex-start; gap: 8px; margin-top: 10px;
+    font-size: 0.9rem; font-weight: 600; color: var(--amber);
+  }
+  .award::before {
+    content: ''; flex: none; margin-top: 0.3em; width: 10px; height: 10px; border-radius: 50%;
+    border: 2px solid var(--amber);
+  }
+  .status {
+    display: inline-block; margin-top: 10px; font-size: 0.9rem; font-weight: 600; color: var(--cobalt);
+  }
 
-        .hero-content h1 {
-            font-size: clamp(2.5rem, 8vw, 4.5rem);
-            font-weight: 800;
-            letter-spacing: -0.03em;
-            line-height: 1.1;
-            margin-bottom: 20px;
-        }
+  /* Publication */
+  .paper-card {
+    background: var(--surface); border: 1px solid var(--rule); border-left: 4px solid var(--cobalt);
+    border-radius: 6px; padding: 32px 36px; max-width: 46em;
+    scroll-margin-top: 84px;
+  }
+  .paper-card .venue { font-weight: 600; color: var(--cobalt); margin-bottom: 8px; }
+  .paper-card h3 {
+    font-family: var(--display); font-size: 1.45rem; font-weight: 700;
+    letter-spacing: -0.015em; line-height: 1.25; margin-bottom: 12px;
+  }
+  .paper-card p { color: var(--muted); }
 
-        .hero-content p {
-            font-size: clamp(1.1rem, 3vw, 1.4rem);
-            color: var(--text-secondary);
-            margin-bottom: 32px;
-        }
+  /* Recognition */
+  .honors { list-style: none; display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 48px; }
+  .honors li { padding: 20px 0; border-top: 1px solid var(--rule); }
+  .honors strong { display: block; font-weight: 600; font-size: 1.05rem; }
+  .honors span { color: var(--muted); font-size: 0.95rem; }
 
-        .social-buttons {
-            display: flex;
-            gap: 12px;
-            justify-content: center;
-        }
+  /* Education and skills */
+  .split { display: grid; grid-template-columns: 1fr 1.2fr; gap: 64px; }
+  .split h3 {
+    font-family: var(--display); font-size: 1.3rem; font-weight: 700; margin-bottom: 6px;
+  }
+  .edu-detail { color: var(--muted); }
+  .edu-detail + .edu-detail { margin-top: 6px; }
+  .skills dt { font-weight: 600; margin-top: 18px; }
+  .skills dt:first-child { margin-top: 0; }
+  .skills dd { color: var(--muted); }
 
-        .btn {
-            padding: 12px 24px;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: 0.3s;
-        }
+  /* Contact */
+  .contact h2 {
+    font-family: var(--display); font-size: clamp(2rem, 4.5vw, 3rem); font-weight: 700;
+    letter-spacing: -0.03em; line-height: 1.1; max-width: 16em; margin-bottom: 20px;
+  }
+  .contact p { color: var(--muted); margin-bottom: 28px; max-width: 34em; }
+  .email-link {
+    font-family: var(--display); font-size: clamp(1.25rem, 3vw, 1.7rem); font-weight: 500;
+    color: var(--cobalt); text-decoration-thickness: 2px; text-underline-offset: 6px;
+    word-break: break-all;
+  }
+  .contact .actions { margin-top: 32px; }
 
-        .btn-primary {
-            background: var(--text);
-            color: white;
-        }
+  footer { padding: 36px 0 48px; color: var(--muted); font-size: 0.88rem; border-top: 1px solid var(--rule); }
 
-        .btn-primary:hover {
-            background: #333;
-            transform: translateY(-2px);
-        }
-
-        .btn-secondary {
-            background: var(--card-bg);
-            color: var(--text);
-        }
-
-        /* General Sections */
-        section {
-            padding: 100px 0;
-        }
-
-        .section-title {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 48px;
-            letter-spacing: -0.02em;
-        }
-
-        /* Projects Grid - Cleaner Cards */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 24px;
-        }
-
-        .card {
-            background: var(--card-bg);
-            padding: 32px;
-            border-radius: var(--radius);
-            transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            border: 1px solid transparent;
-        }
-
-        .card:hover {
-            background: #fff;
-            border-color: rgba(0,0,0,0.05);
-            box-shadow: var(--shadow);
-            transform: translateY(-4px);
-        }
-
-        .card h3 {
-            margin-bottom: 12px;
-            font-size: 1.3rem;
-        }
-
-        .card p {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            margin-bottom: 16px;
-        }
-
-        .card-tag {
-            font-size: 0.75rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            color: var(--accent);
-            margin-bottom: 8px;
-            display: block;
-        }
-
-        /* Skills */
-        .skills-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-        }
-
-        .skill-tag {
-            background: white;
-            border: 1px solid rgba(0,0,0,0.1);
-            padding: 8px 18px;
-            border-radius: 100px;
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
-
-        /* Experience/Education Timeline */
-        .timeline-item {
-            border-left: 2px solid var(--accent-soft);
-            padding-left: 24px;
-            padding-bottom: 40px;
-            position: relative;
-        }
-
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -7px;
-            top: 0;
-            width: 12px;
-            height: 12px;
-            background: var(--accent);
-            border-radius: 50%;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .nav-links { display: none; }
-            .hero-content h1 { font-size: 2.8rem; }
-        }
-    </style>
+  /* Responsive */
+  @media (max-width: 880px) {
+    .hero { padding: 56px 0 48px; }
+    .hero .wrap { grid-template-columns: 1fr; gap: 40px; }
+    .map { max-width: 520px; }
+    .row { grid-template-columns: 1fr; gap: 12px; }
+    .row::before { left: -14px; }
+    .split { grid-template-columns: 1fr; gap: 48px; }
+    .honors { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 640px) {
+    body { font-size: 16px; }
+    .wrap { padding: 0 20px; }
+    .site-nav { gap: 16px; }
+    .site-nav .optional { display: none; }
+    .section { padding: 64px 0; }
+    .paper-card { padding: 24px; }
+  }
+</style>
 </head>
 <body>
 
-    <header>
-        <div class="container nav-container">
-            <div class="logo">Sanath Reddy</div>
-            <ul class="nav-links">
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+<header class="site-header">
+  <div class="wrap">
+    <a class="wordmark" href="#top">Sanath Reddy</a>
+    <ul class="site-nav">
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li class="optional"><a href="#research">Research</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <p class="hero-meta">Computer Science, PES University, Bengaluru. Class of 2027.</p>
+        <h1>Sigineni Venkata Sanath Reddy</h1>
+        <p class="hero-lede">I build retrieval-augmented AI systems and fast, readable data visualizations. Research internships at AVEVA and CCNCS, a paper published with Springer, and awards at three hackathons.</p>
+        <div class="actions">
+          <a class="button button-solid" href="mailto:kalpanabandi1982@gmail.com">Email me</a>
+          <a class="button button-line" href="https://github.com/SanathSV">GitHub</a>
+          <a class="button button-line" href="https://www.linkedin.com/in/svsanath">LinkedIn</a>
         </div>
-    </header>
+      </div>
 
-    <section id="hero">
-        <div class="container hero-content">
-            <span class="badge">Open for Internships 2026</span>
-            <h1>Sigineni Venkata Sanath Reddy</h1>
-            <p>Computer Science Student at PES University. Specialized in building intelligent systems with AI, RAG, and LLMs.</p>
-            <div class="social-buttons">
-                <a href="https://github.com/SanathSV" class="btn btn-primary">View GitHub</a>
-                <a href="#contact" class="btn btn-secondary">Get in Touch</a>
-            </div>
+      <figure class="map" id="map" aria-label="Map of my work. Select an item to jump to it.">
+        <svg viewBox="0 0 480 440" role="group"></svg>
+        <figcaption class="legend">
+          <span><svg viewBox="0 0 14 14"><rect x="2" y="2" width="10" height="10" fill="#1B2540"/></svg>Experience</span>
+          <span><svg viewBox="0 0 14 14"><circle cx="7" cy="7" r="5" fill="#fff" stroke="#1B2540" stroke-width="2"/></svg>Project</span>
+          <span><svg viewBox="0 0 14 14"><path d="M7 1 L13 7 L7 13 L1 7 Z" fill="#2A47D6"/></svg>Publication</span>
+          <span><svg viewBox="0 0 14 14"><circle cx="7" cy="7" r="5" fill="none" stroke="#B7791F" stroke-width="2"/></svg>Award</span>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section" id="experience">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Experience</h2>
+      </div>
+
+      <article class="row" id="aveva">
+        <div>
+          <h3>AVEVA</h3>
+          <p class="when">Research SDE Intern<br>Jun – Jul 2026, Hyderabad</p>
         </div>
-    </section>
-
-    <section id="projects">
-        <div class="container">
-            <h2 class="section-title">Selected Projects</h2>
-            <div class="projects-grid">
-                <div class="card">
-                    <span class="card-tag">Award Winning</span>
-                    <h3>CuraMate</h3>
-                    <p>AI Medical Assistant using RAG + LLMs to analyze symptoms and prescriptions. Won 2nd at Heal-O-Thon.</p>
-                </div>
-                <div class="card">
-                    <span class="card-tag">Computer Vision</span>
-                    <h3>Mental Health Monitor</h3>
-                    <p>Real-time wellbeing assessment using facial emotion detection and audio analysis via MediaPipe.</p>
-                </div>
-                <div class="card">
-                    <span class="card-tag">Infrastructure</span>
-                    <h3>Campes</h3>
-                    <p>Live queue optimization and scheduling system for university canteens. Currently in final testing.</p>
-                </div>
-                <div class="card">
-                    <span class="card-tag">IoT / Simulation</span>
-                    <h3>TraffixBLR</h3>
-                    <p>V2V communication prototype for autonomous braking signals. Ranked Top 8 at CodeRed Hackathon.</p>
-                </div>
-            </div>
+        <div class="body">
+          <ul>
+            <li>Built a real-time, animated visualization widget for enterprise dashboards in Angular and Highcharts, used to track and compare high-volume asset telemetry.</li>
+            <li>Designed a framework-agnostic animation engine and a decoupled data pipeline that turns live-streaming time-series data into smooth playback without slowing the UI.</li>
+          </ul>
+          <p class="stack">Angular, Highcharts, streaming time-series data</p>
         </div>
-    </section>
+      </article>
 
-    <section id="experience" style="background: var(--card-bg);">
-        <div class="container">
-            <h2 class="section-title">Experience & Education</h2>
-            
-            <div class="timeline-item">
-                <span class="card-tag">Jun 2025 — Aug 2025</span>
-                <h3>Research Intern — CCNCS, PES University</h3>
-                <p>Scaling CuraMate AI. Co-authored SMARTCOM 2026 (Springer) paper. Focused on Batch-based retrieval and Vector DB optimization.</p>
-            </div>
-
-            <div class="timeline-item">
-                <span class="card-tag">2023 — 2027</span>
-                <h3>B.Tech in Computer Science — PES University</h3>
-                <p>CGPA: 9.03 / 10.0 • MRD Scholar (Top 5% of Batch).</p>
-            </div>
+      <article class="row" id="ccncs">
+        <div>
+          <h3>CCNCS, PES University</h3>
+          <p class="when">Research Intern<br>Jun – Aug 2025, Bengaluru</p>
         </div>
-    </section>
-
-    <section id="skills">
-        <div class="container">
-            <h2 class="section-title">Technical Skills</h2>
-            <div class="skills-container">
-                <span class="skill-tag">Python</span>
-                <span class="skill-tag">LangChain</span>
-                <span class="skill-tag">LLMs / RAG</span>
-                <span class="skill-tag">Vector DBs (FAISS)</span>
-                <span class="skill-tag">MERN Stack</span>
-                <span class="skill-tag">Flask</span>
-                <span class="skill-tag">SQL</span>
-                <span class="skill-tag">Kafka</span>
-                <span class="skill-tag">Prompt Engineering</span>
-            </div>
+        <div class="body">
+          <ul>
+            <li>Architected and scaled CuraMate into a blockchain-integrated medical AI platform that uses LLMs and RAG to secure clinical diagnostic pathways.</li>
+            <li>Co-authored the resulting paper, published by Springer at SMARTCOM 2026.</li>
+          </ul>
+          <p class="stack">LLMs, RAG, vector databases, blockchain</p>
         </div>
-    </section>
+      </article>
+    </div>
+  </section>
 
-    <section id="contact" style="text-align: center;">
-        <div class="container">
-            <h2 class="section-title">Let's Connect</h2>
-            <p style="margin-bottom: 30px; color: var(--text-secondary);">I'm always open to discussing new projects or research opportunities.</p>
-            <a href="mailto:kalpanabandi1982@gmail.com" class="btn btn-primary" style="font-size: 1.1rem; padding: 16px 40px;">Email Me</a>
-            <div style="margin-top: 40px;">
-                <a href="https://www.linkedin.com/in/svsanath" style="margin: 0 10px; color: var(--text);">LinkedIn</a>
-                <a href="https://github.com/SanathSV" style="margin: 0 10px; color: var(--text);">GitHub</a>
-            </div>
+  <section class="section" id="projects">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Projects</h2>
+      </div>
+
+      <article class="row" id="gitsight">
+        <div>
+          <h3>GitSight</h3>
+          <span class="status">Under review for adoption at AVEVA</span>
         </div>
-    </section>
+        <div class="body">
+          <p>An offline code visualization tool that maps the dependencies of a repository and draws them as an explorable graph. It renders 30,000-file repositories in under 30 ms.</p>
+          <p class="stack">Python, D3.js</p>
+        </div>
+      </article>
 
-    <footer style="padding: 60px 0; border-top: 1px solid rgba(0,0,0,0.05); text-align: center; color: var(--text-secondary); font-size: 0.85rem;">
-        © 2026 Sigineni Venkata Sanath Reddy. Built with precision.
-    </footer>
+      <article class="row" id="curamate">
+        <div>
+          <h3>CuraMate</h3>
+          <span class="award">2nd place, Heal-O-Thon</span>
+        </div>
+        <div class="body">
+          <p>A RAG-based medical assistant that reads patient symptoms and prescriptions to reduce manual clinical errors and automate medication pathways. I later scaled it during my CCNCS internship into the platform behind my SMARTCOM 2026 paper.</p>
+          <p class="stack">LLMs, RAG, FAISS, Ollama embeddings, Python</p>
+        </div>
+      </article>
 
+      <article class="row" id="heysoul">
+        <div>
+          <h3>HeySoul</h3>
+          <p class="when">Mental health monitor</p>
+        </div>
+        <div class="body">
+          <p>A real-time wellbeing assessment system that combines facial emotion recognition with audio stress detection. Caregivers see a live dashboard, and the system raises automatic alerts when it detects signs of self-harm risk.</p>
+          <p class="stack">PyTorch, computer vision, audio analysis</p>
+        </div>
+      </article>
+
+      <article class="row" id="techtails">
+        <div>
+          <h3>Tech Tails</h3>
+          <span class="award">3rd place, Ingenious Hackathon</span>
+        </div>
+        <div class="body">
+          <p>A physics-based system that detects a dog's emotional state using frequency analysis and motion tracking instead of machine learning, making behavioral analysis cheap to run.</p>
+          <p class="stack">Signal processing, motion tracking</p>
+        </div>
+      </article>
+
+      <article class="row" id="traffixblr">
+        <div>
+          <h3>TraffixBLR</h3>
+          <span class="award">Top 8, CodeRed Hackathon</span>
+        </div>
+        <div class="body">
+          <p>An IoT vehicle-to-vehicle communication prototype, built with physical components and custom signaling, that simulates ADAS braking alerts for traffic safety.</p>
+          <p class="stack">IoT, embedded systems</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section" id="research">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Research</h2>
+      </div>
+      <!-- Add the paper title and a DOI link here once available -->
+      <article class="paper-card" id="paper">
+        <p class="venue">SMARTCOM 2026, Springer</p>
+        <h3>Co-authored paper on CuraMate</h3>
+        <p>The paper presents CuraMate, a blockchain-integrated medical AI platform that uses large language models and retrieval-augmented generation to secure clinical diagnostic pathways. Written during my research internship at CCNCS, PES University.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section" id="recognition">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Recognition</h2>
+      </div>
+      <ul class="honors">
+        <li><strong>2nd place, Heal-O-Thon</strong><span>For CuraMate</span></li>
+        <li><strong>3rd place, Ingenious Hackathon</strong><span>For Tech Tails</span></li>
+        <li><strong>Top 8, CodeRed Hackathon</strong><span>For TraffixBLR</span></li>
+        <li><strong>Shortlisted, Code for Good</strong><span>JPMorgan Chase hackathon</span></li>
+        <li><strong>MRD Scholarship</strong><span>Four consecutive semesters, top 5% academic ranking at PES University</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" id="education">
+    <div class="wrap split">
+      <div>
+        <div class="section-head"><h2>Education</h2></div>
+        <h3>PES University</h3>
+        <p class="edu-detail">B.Tech in Computer Science and Engineering, 2023 – 2027</p>
+        <p class="edu-detail">CGPA 9.02 / 10</p>
+        <p class="edu-detail">Electives in Generative AI, Large Language Models, and Retrieval-Augmented Generation</p>
+      </div>
+      <div>
+        <div class="section-head"><h2>Skills</h2></div>
+        <dl class="skills">
+          <dt>AI and machine learning</dt>
+          <dd>LLMs, RAG, LLM fine-tuning, prompt engineering, FAISS, Ollama embeddings, computer vision, audio analysis, PyTorch</dd>
+          <dt>Languages</dt>
+          <dd>Python, Java, SQL</dd>
+          <dt>Frameworks and libraries</dt>
+          <dd>Angular, Highcharts, D3.js, Flask, Streamlit, MERN stack, Kafka, Pandas, NumPy, REST APIs</dd>
+          <dt>Tools</dt>
+          <dd>Git, Docker, Linux</dd>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="section contact" id="contact">
+    <div class="wrap">
+      <h2>Let's talk about roles, research, or something you're building.</h2>
+      <p>The fastest way to reach me is email.</p>
+      <a class="email-link" href="mailto:kalpanabandi1982@gmail.com">kalpanabandi1982@gmail.com</a>
+      <div class="actions">
+        <a class="button button-line" href="https://www.linkedin.com/in/svsanath">LinkedIn</a>
+        <a class="button button-line" href="https://github.com/SanathSV">GitHub</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">© 2026 Sigineni Venkata Sanath Reddy</div>
+</footer>
+
+<script>
+  // Work map: nodes are real items on this page; lines join work that shares a thread.
+  const nodes = [
+    { id: 'ccncs',      label: 'CCNCS',         sub: 'Research, 2025',     type: 'work',    x: 80,  y: 120, pos: 'b' },
+    { id: 'paper',      label: 'SMARTCOM 2026', sub: 'Springer paper',     type: 'paper',   x: 210, y: 48,  pos: 'r' },
+    { id: 'aveva',      label: 'AVEVA',         sub: 'Research SDE, 2026', type: 'work',    x: 400, y: 110, pos: 'a' },
+    { id: 'curamate',   label: 'CuraMate',      sub: '2nd, Heal-O-Thon',   type: 'project', x: 215, y: 195, pos: 'r', award: true },
+    { id: 'gitsight',   label: 'GitSight',      sub: 'Code visualization', type: 'project', x: 390, y: 255, pos: 'l' },
+    { id: 'heysoul',    label: 'HeySoul',       sub: 'Wellbeing monitor',  type: 'project', x: 72,  y: 295, pos: 'b' },
+    { id: 'techtails',  label: 'Tech Tails',    sub: '3rd, Ingenious',     type: 'project', x: 250, y: 360, pos: 'b', award: true },
+    { id: 'traffixblr', label: 'TraffixBLR',    sub: 'Top 8, CodeRed',     type: 'project', x: 405, y: 382, pos: 'b', award: true },
+  ];
+  const edges = [
+    ['ccncs', 'curamate'], ['ccncs', 'paper'], ['curamate', 'paper'], ['ccncs', 'aveva'],
+    ['aveva', 'gitsight'], ['curamate', 'heysoul'], ['heysoul', 'techtails'], ['techtails', 'traffixblr'],
+  ];
+
+  const NS = 'http://www.w3.org/2000/svg';
+  const map = document.getElementById('map');
+  const svg = map.querySelector('svg');
+  const byId = Object.fromEntries(nodes.map(n => [n.id, n]));
+  const el = (tag, attrs) => {
+    const e = document.createElementNS(NS, tag);
+    for (const k in attrs) e.setAttribute(k, attrs[k]);
+    return e;
+  };
+
+  const edgeEls = edges.map(([a, b], i) => {
+    const line = el('line', { x1: byId[a].x, y1: byId[a].y, x2: byId[b].x, y2: byId[b].y, pathLength: 1, class: 'edge' });
+    line.style.setProperty('--i', i);
+    line.dataset.a = a; line.dataset.b = b;
+    svg.appendChild(line);
+    return line;
+  });
+
+  const nodeEls = nodes.map((n, i) => {
+    const g = el('a', { href: '#' + n.id, class: 'node', 'aria-label': n.label + ', ' + n.sub });
+    g.style.setProperty('--i', i);
+    g.dataset.id = n.id;
+
+    if (n.award) g.appendChild(el('circle', { cx: n.x, cy: n.y, r: 12, class: 'award-ring' }));
+    if (n.type === 'work') g.appendChild(el('rect', { x: n.x - 6.5, y: n.y - 6.5, width: 13, height: 13, class: 'node-shape work' }));
+    else if (n.type === 'paper') g.appendChild(el('path', { d: `M${n.x} ${n.y - 9} L${n.x + 9} ${n.y} L${n.x} ${n.y + 9} L${n.x - 9} ${n.y} Z`, class: 'node-shape paper' }));
+    else g.appendChild(el('circle', { cx: n.x, cy: n.y, r: 6.5, class: 'node-shape' }));
+
+    // Invisible hit area so small shapes are easy to hover and tap
+    g.appendChild(el('circle', { cx: n.x, cy: n.y, r: 22, fill: 'transparent' }));
+
+    let lx = n.x, ly1, ly2, anchor = 'middle';
+    if (n.pos === 'b') { ly1 = n.y + 32; ly2 = n.y + 48; }
+    if (n.pos === 'a') { ly1 = n.y - 36; ly2 = n.y - 20; }
+    if (n.pos === 'r') { lx = n.x + 20; ly1 = n.y - 2; ly2 = n.y + 14; anchor = 'start'; }
+    if (n.pos === 'l') { lx = n.x - 20; ly1 = n.y - 2; ly2 = n.y + 14; anchor = 'end'; }
+    const t1 = el('text', { x: lx, y: ly1, 'text-anchor': anchor, class: 'label' }); t1.textContent = n.label;
+    const t2 = el('text', { x: lx, y: ly2, 'text-anchor': anchor, class: 'sub' }); t2.textContent = n.sub;
+    g.append(t1, t2);
+    svg.appendChild(g);
+    return g;
+  });
+
+  function focusNode(id) {
+    map.classList.add('focused');
+    const linked = new Set([id]);
+    edgeEls.forEach(e => {
+      const on = e.dataset.a === id || e.dataset.b === id;
+      e.classList.toggle('on', on);
+      if (on) { linked.add(e.dataset.a); linked.add(e.dataset.b); }
+    });
+    nodeEls.forEach(g => g.classList.toggle('on', linked.has(g.dataset.id)));
+  }
+  function clearFocus() {
+    map.classList.remove('focused');
+    edgeEls.concat(nodeEls).forEach(e => e.classList.remove('on'));
+  }
+
+  nodeEls.forEach(g => {
+    g.addEventListener('mouseenter', () => focusNode(g.dataset.id));
+    g.addEventListener('focus', () => focusNode(g.dataset.id));
+    g.addEventListener('mouseleave', clearFocus);
+    g.addEventListener('blur', clearFocus);
+  });
+</script>
 </body>
 </html>
