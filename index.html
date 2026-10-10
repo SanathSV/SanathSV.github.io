@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sanath Reddy | AI and Software Engineering</title>
-<meta name="description" content="Sigineni Venkata Sanath Reddy, computer science student at PES University. Research internships at AVEVA and CCNCS, a Springer-published paper, Campes, and award-winning hackathon projects.">
+<meta name="description" content="Sigineni Venkata Sanath Reddy, computer science student at PES University. Research internships at AVEVA and CCNCS, a Springer-published paper, serverless AI systems on AWS, and award-winning hackathon projects.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -260,7 +260,7 @@
       <div>
         <p class="hero-meta">Computer Science, PES University, Bengaluru. Class of 2027.</p>
         <h1>Sigineni Venkata Sanath Reddy</h1>
-        <p class="hero-lede">I build retrieval-augmented AI systems and fast, readable data visualizations. Research internships at AVEVA and CCNCS, a paper published with Springer, awards at three hackathons, and Campes, a live food pre-ordering platform.</p>
+        <p class="hero-lede">I build AI systems that solve real workflow problems, from clinical diagnosis to team management, on serverless AWS backends, plus fast, readable data visualizations. Research internships at AVEVA and CCNCS, a paper published with Springer, awards at three hackathons, and Campes, a live food pre-ordering platform.</p>
         <div class="actions">
           <a class="button button-solid" href="mailto:kalpanabandi1982@gmail.com">Email me</a>
           <a class="button button-line" href="https://github.com/SanathSV">GitHub</a>
@@ -307,7 +307,7 @@
         </div>
         <div class="body">
           <ul>
-            <li>Architected and scaled CuraMate into a blockchain-integrated medical AI platform that uses LLMs and RAG to secure clinical diagnostic pathways.</li>
+            <li>Architected and scaled CuraMate into a blockchain-integrated clinical AI platform that uses LLMs and RAG to secure diagnostic pathways.</li>
             <li>Co-authored the resulting paper, published by Springer at SMARTCOM 2026.</li>
           </ul>
           <p class="stack">LLMs, RAG, vector databases, blockchain</p>
@@ -328,19 +328,41 @@
           <span class="status">Under review for adoption at AVEVA</span>
         </div>
         <div class="body">
-          <p>An offline code visualization tool that maps the dependencies of a repository and draws them as an explorable graph. It renders 30,000-file repositories in under 30 ms.</p>
-          <p class="stack">Python, D3.js</p>
+          <p>Large codebases are hard to understand, and new engineers lose days tracing how files depend on each other. GitSight is an offline tool that maps a repository's dependencies and draws them as an explorable graph, rendering 30,000-file repositories in under 30 ms.</p>
+          <p class="stack">Python, D3.js, graph algorithms</p>
         </div>
       </article>
 
       <article class="row" id="curamate">
         <div>
           <h3>CuraMate</h3>
+          <p class="when">Clinical decision support</p>
           <span class="award">2nd place, Heal-O-Thon</span>
         </div>
         <div class="body">
-          <p>A RAG-based medical assistant that reads patient symptoms and prescriptions to reduce manual clinical errors and automate medication pathways. I later scaled it during my CCNCS internship into the platform behind my SMARTCOM 2026 paper.</p>
-          <p class="stack">LLMs, RAG, FAISS, Ollama embeddings, Python</p>
+          <p>Manual diagnosis is slow and error-prone. CuraMate analyzes a patient's symptoms and medical history and returns ranked differential diagnoses with recommendations.</p>
+          <ul>
+            <li>Parallel FAISS retrieval across 6 shards over 300K+ medical records, at roughly 10–15 ms retrieval latency.</li>
+            <li>Serverless AWS architecture (Lambda, S3, API Gateway) that combines Bayesian inference with LLM-based symptom classification to rank diagnoses.</li>
+            <li>Scaled during my CCNCS internship into the platform behind my SMARTCOM 2026 paper.</li>
+          </ul>
+          <p class="stack">Python, FastAPI, AWS Lambda, S3, FAISS, RAG, Bayesian inference, Gemini, Docker</p>
+        </div>
+      </article>
+
+      <article class="row" id="astra">
+        <div>
+          <h3>ASTRA</h3>
+          <p class="when">Project management and meeting intelligence</p>
+        </div>
+        <div class="body">
+          <p>Teams waste hours chasing status updates across Meet, GitHub and Jira, and managers can't see whether work matches what was assigned. ASTRA pulls it all into one place.</p>
+          <ul>
+            <li>A Chrome extension integrated with Google Meet, GitHub and Jira that aggregates real-time project updates and generates contextual meeting intelligence.</li>
+            <li>Hierarchical role-based access control and team management, tracking each member's actual work against allotted tasks so time isn't wasted.</li>
+            <li>Event-driven AWS backend (Lambda, DynamoDB, S3, SQS, Cognito) powering meeting transcription, AI-generated action items and automated task assignment.</li>
+          </ul>
+          <p class="stack">Python, FastAPI, AWS Lambda, DynamoDB, Cognito, S3, SQS, Docker, Chrome extension, LLMs</p>
         </div>
       </article>
 
@@ -372,7 +394,7 @@
           <span class="award">3rd place, Ingenious Hackathon</span>
         </div>
         <div class="body">
-          <p>A physics-based system that detects a dog's emotional state using frequency analysis and motion tracking instead of machine learning, making behavioral analysis cheap to run.</p>
+          <p>Reading a dog's emotions usually means training costly ML models. Tech Tails skips that: a physics-based system detects emotional state from frequency analysis and motion tracking, so it is cheap, explainable and runs on edge hardware.</p>
           <p class="stack">Signal processing, motion tracking</p>
         </div>
       </article>
@@ -414,7 +436,7 @@
         <li><strong>3rd place, Ingenious Hackathon</strong><span>For Tech Tails</span></li>
         <li><strong>Top 8, CodeRed Hackathon</strong><span>For TraffixBLR</span></li>
         <li><strong>Shortlisted, Code for Good</strong><span>JPMorgan Chase hackathon</span></li>
-        <li><strong>MRD Scholarship four times, CNR Scholarship twice</strong><span>Merit scholarships placing me in the top 5% of my peers at PES University</span></li>
+        <li><strong>Scholarship in every semester</strong><span>MRD Scholar (top 5% of college) four times, CNR Scholarship twice, at PES University</span></li>
       </ul>
     </div>
   </section>
@@ -426,22 +448,22 @@
         <h3>PES University</h3>
         <p class="edu-detail">B.Tech in Computer Science and Engineering, 2023 – 2027</p>
         <p class="edu-detail">CGPA 9.02 / 10</p>
-        <p class="edu-detail">4 MRD and 2 CNR scholarships, top 5% of my peers</p>
-        <p class="edu-detail">Electives in Generative AI, Large Language Models, and Retrieval-Augmented Generation</p>
+        <p class="edu-detail">Scholarship in every semester, including MRD Scholar (top 5% of college)</p>
+        <p class="edu-detail">Electives in Generative AI, Database Technologies, Data Analytics, and Big Data</p>
       </div>
       <div>
         <div class="section-head"><h2>Skills</h2></div>
         <dl class="skills">
           <dt>AI and machine learning</dt>
-          <dd>LLMs, RAG, LLM fine-tuning, prompt engineering, FAISS, Ollama embeddings, computer vision, audio analysis, PyTorch</dd>
+          <dd>LLMs (Gemini), RAG, LLM fine-tuning, prompt engineering, FAISS, Bayesian inference, computer vision, audio analysis, PyTorch</dd>
           <dt>Languages</dt>
-          <dd>Python, Java, SQL</dd>
+          <dd>Python, Java, SQL, TypeScript</dd>
           <dt>Frameworks and libraries</dt>
-          <dd>Angular, Highcharts, D3.js, Flask, Streamlit, MERN stack, Kafka, Pandas, NumPy, REST APIs</dd>
+          <dd>FastAPI, Flask, Angular, Highcharts, D3.js, MERN stack, Chrome extensions, Kafka, Pandas, NumPy, REST APIs</dd>
           <dt>Cloud and infrastructure</dt>
-          <dd>Cloudflare, Firebase Authentication, Amazon S3, AWS SAM</dd>
+          <dd>AWS (Lambda, API Gateway, S3, DynamoDB, SQS, Cognito, SAM), Docker, Cloudflare, Firebase Authentication</dd>
           <dt>Tools</dt>
-          <dd>Git, Docker, Linux</dd>
+          <dd>Git, Linux</dd>
         </dl>
       </div>
     </div>
@@ -472,6 +494,7 @@
     { id: 'paper',      label: 'SMARTCOM 2026', sub: 'Springer paper',     type: 'paper',   x: 210, y: 48,  pos: 'r' },
     { id: 'aveva',      label: 'AVEVA',         sub: 'Research SDE, 2026', type: 'work',    x: 400, y: 110, pos: 'a' },
     { id: 'curamate',   label: 'CuraMate',      sub: '2nd, Heal-O-Thon',   type: 'project', x: 215, y: 195, pos: 'r', award: true },
+    { id: 'astra',      label: 'ASTRA',         sub: 'Meeting intelligence', type: 'project', x: 150, y: 262, pos: 'b' },
     { id: 'gitsight',   label: 'GitSight',      sub: 'Code visualization', type: 'project', x: 390, y: 255, pos: 'l' },
     { id: 'heysoul',    label: 'HeySoul',       sub: 'Wellbeing monitor',  type: 'project', x: 72,  y: 295, pos: 'b' },
     { id: 'techtails',  label: 'Tech Tails',    sub: '3rd, Ingenious',     type: 'project', x: 250, y: 360, pos: 'b', award: true },
@@ -480,7 +503,7 @@
   ];
   const edges = [
     ['ccncs', 'curamate'], ['ccncs', 'paper'], ['curamate', 'paper'], ['ccncs', 'aveva'],
-    ['aveva', 'gitsight'], ['curamate', 'heysoul'], ['heysoul', 'techtails'], ['techtails', 'traffixblr'], ['gitsight', 'campes'],
+    ['aveva', 'gitsight'], ['curamate', 'astra'], ['astra', 'campes'], ['curamate', 'heysoul'], ['heysoul', 'techtails'], ['techtails', 'traffixblr'], ['gitsight', 'campes'],
   ];
 
   const NS = 'http://www.w3.org/2000/svg';
